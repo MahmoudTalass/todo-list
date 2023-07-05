@@ -1,9 +1,7 @@
-let todoId = 0;
-
-const TodoItem = (title, description, duedate, priority) => {
+const TodoItem = (title, description, duedate, priority, todoIds) => {
    let state = {
       isComplete: false,
-      id: todoId++,
+      id: todoIds,
    };
 
    return {
@@ -12,17 +10,18 @@ const TodoItem = (title, description, duedate, priority) => {
       duedate,
       priority,
       isComplete: state.isComplete,
-      todoId: state.id
+      id: state.id
    };
 };
 
-function createTodoItem() {
+function createTodoItem(todoIds) {
    const title = prompt("Whats the title of your todo?");
    const description = prompt("what is its description?");
    const duedate = prompt("when is it due?");
    const priority = prompt("what is its priority? urgent/normal ");
 
-   return TodoItem(title, description, duedate, priority);
+
+   return TodoItem(title, description, duedate, priority, todoIds);
 }
 
 export { createTodoItem };
