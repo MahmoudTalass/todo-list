@@ -1,31 +1,31 @@
 import { createTodoItem } from "./todo";
-import users from './user-controller'
-
+import { users } from "./user";
 
 let projectIds = 0;
 
 const Project = (title) => {
    let state = {
-    todos: [],
-    id: projectIds++,
-    title: title
-   }
+      todos: [],
+      id: projectIds++,
+      title: title,
+   };
 
    return {
-      state,
-      title
+      todosList: state.todos,
+      title: state.title,
+      projectId: state.id
    };
 };
 
-function createProject() {
-   const title = prompt("whats the title of your project");
+function createProject(title) {
    return Project(title);
 }
 
-function addTodoToProject(projectId) {
-    let selectedProject = users[0].state.projects[projectId];
 
-    selectedProject.state.todos.push(createTodoItem());
+function addTodoToProject(projectId) {
+   let selectedProject = users[0].state.projects[projectId];
+
+   selectedProject.state.todos.push(createTodoItem());
 }
 
-export {createProject, addTodoToProject} ;
+export { createProject, addTodoToProject };

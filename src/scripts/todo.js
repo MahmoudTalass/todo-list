@@ -11,7 +11,8 @@ const TodoItem = (title, description, duedate, priority) => {
       description,
       duedate,
       priority,
-      state,
+      isComplete: state.isComplete,
+      todoId: state.id
    };
 };
 

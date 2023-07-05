@@ -1,5 +1,6 @@
 import { createProject } from "./project";
-import users from "./user-controller";
+
+let users = [];
 
 let userIds = 0;
 
@@ -7,20 +8,27 @@ const User = (name) => {
    let state = {
       name: name,
       id: userIds++,
-      projects: [addProject('default')]
-   }
+      projects: [],
+   };
 
    return {
-      state
-   }
+      username: state.name,
+      userId: state.id,
+      projects: state.projects
+   };
 };
 
 function createUser(name) {
-   users.push(User(name))
+   users.push(User(name));
+   console.log(users);
+   let userProjects = users[0].state.projects;
+   userProjects.push(createProject("default"));
 }
 
 function addProject(name) {
-   users[0].push(createProject(name))
+   let userProjects = users[0].state.projects;
+   userProjects.push(createProject(name));
 }
 
 export default createUser;
+export { users };
