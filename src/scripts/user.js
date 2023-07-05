@@ -21,12 +21,12 @@ const User = (name) => {
 function createUser(name) {
    users.push(User(name));
    console.log(users);
-   let userProjects = users[0].state.projects;
+   let userProjects = users[0].projects;
    userProjects.push(createProject("default"));
 }
 
 function addProject(name) {
-   let userProjects = users[0].state.projects;
+   let userProjects = users[0].projects;
    userProjects.push(createProject(name));
 }
 

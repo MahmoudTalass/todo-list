@@ -23,9 +23,9 @@ function createProject(title) {
 
 
 function addTodoToProject(projectId) {
-   let selectedProject = users[0].state.projects[projectId];
+   let selectedProject = users[0].projects[projectId];
 
-   selectedProject.state.todos.push(createTodoItem());
+   selectedProject.todosList.push(createTodoItem());
 }
 
 export { createProject, addTodoToProject };
