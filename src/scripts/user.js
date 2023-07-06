@@ -39,5 +39,12 @@ function removeProject(projectId) {
    users[0].projects.splice(projectIndex, 1);
 }
 
+function editProjectTitle(projectId, newTitle) {
+   let projectIndex = users[0].projects.findIndex(
+      (project) => project.id === projectId
+   );
+   users[0].projects[projectIndex].title = newTitle;
+}
+
 export default createUser;
 export { users, addProject, removeProject };
