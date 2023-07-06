@@ -1,4 +1,4 @@
-const TodoItem = (title, description, duedate, priority, todoIds) => {
+const TodoItem = (title, description, duedate, priority, todoIds, existsInProject) => {
    let state = {
       isComplete: false,
       id: todoIds,
@@ -6,6 +6,7 @@ const TodoItem = (title, description, duedate, priority, todoIds) => {
       description: description,
       duedate: duedate,
       priority: priority,
+      existsInProject: existsInProject
    };
 
    return {
@@ -15,11 +16,12 @@ const TodoItem = (title, description, duedate, priority, todoIds) => {
       priority: state.priority,
       isComplete: state.isComplete,
       id: state.id,
+      existsInProject: state.existsInProject
    };
 };
 
-function createTodoItem(title, desc, duedate, priority, todoIds) {
-   return TodoItem(title, description, duedate, priority, todoIds);
+function createTodoItem(title, desc, duedate, priority, todoIds, existsInProject) {
+   return TodoItem(title, desc, duedate, priority, todoIds, existsInProject);
 }
 
 export { createTodoItem };

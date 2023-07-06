@@ -28,7 +28,7 @@ function addTodoToProject(title, desc, duedate, priority, projectId) {
    let projectTodosIds = selectedProject.todoIds++;
 
    selectedProject.todosList.push(
-      createTodoItem(title, desc, duedate, priority, projectTodosIds)
+      createTodoItem(title, desc, duedate, priority, projectTodosIds, projectId)
    );
 }
 
@@ -56,7 +56,7 @@ function markAsComplete(projectId, todoId) {
 
    projContainingTodo.todosList[todoIndex].isComplete = true;
    removeTodo(projectId, todoId);
-}a 
+}
 
 
 export { createProject, addTodoToProject, removeTodo };
