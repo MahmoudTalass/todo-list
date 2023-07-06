@@ -23,11 +23,13 @@ function createProject(title) {
    return Project(title);
 }
 
-function addTodoToProject(projectId) {
+function addTodoToProject(title, desc, duedate, priority, projectId) {
    let selectedProject = users[0].projects[projectId];
    let projectTodosIds = selectedProject.todoIds++;
 
-   selectedProject.todosList.push(createTodoItem(projectTodosIds));
+   selectedProject.todosList.push(
+      createTodoItem(title, desc, duedate, priority, projectTodosIds)
+   );
 }
 
 function removeTodo(projectId, todoId) {
