@@ -50,4 +50,13 @@ function editTodoDesc(projectId, todoId, newDesc) {
    projContainingTodo.todosList[todoIndex].description = newDesc;
 }
 
+function markAsComplete(projectId, todoId) {
+   let projContainingTodo = users[0].projects[projectId].todosList;
+   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+
+   projContainingTodo.todosList[todoIndex].isComplete = true;
+   removeTodo(projectId, todoId);
+}a 
+
+
 export { createProject, addTodoToProject, removeTodo };
