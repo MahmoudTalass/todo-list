@@ -42,4 +42,10 @@ function editTodoTitle(projectId, todoId, newTitle) {
    projContainingTodo.todosList[todoIndex].title = newTitle;
 }
 
+function editTodoDesc(projectId, todoId, newDesc) {
+   let projContainingTodo = users[0].projects[projectId].todosList;
+   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+   projContainingTodo.todosList[todoIndex].description = newDesc;
+}
+
 export { createProject, addTodoToProject, removeTodo };
