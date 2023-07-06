@@ -14,7 +14,7 @@ const User = (name) => {
    return {
       username: state.name,
       userId: state.id,
-      projects: state.projects
+      projects: state.projects,
    };
 };
 
@@ -30,5 +30,14 @@ function addProject(name) {
    userProjects.push(createProject(name));
 }
 
+function removeProject(projectId) {
+   if (projectId === 0) return;
+
+   let projectIndex = users[0].projects.findIndex(
+      (project) => project.id === projectId
+   );
+   users[0].projects.splice(projectIndex, 1);
+}
+
 export default createUser;
-export { users };
+export { users, addProject, removeProject };
