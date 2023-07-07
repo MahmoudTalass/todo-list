@@ -8,7 +8,7 @@ const User = (name) => {
    let state = {
       name: name,
       id: userIds++,
-      projects: []
+      projects: [],
    };
 
    return {
@@ -22,11 +22,13 @@ function createUser(name) {
    user = User(name);
    let userProjects = user.projects;
    userProjects.push(createProject("default"));
+   updateStorage();
 }
 
 function addProject(title) {
    let userProjects = user.projects;
    userProjects.push(createProject(title));
+   updateStorage();
 }
 
 function removeProject(projectId) {
@@ -36,6 +38,7 @@ function removeProject(projectId) {
       (project) => project.id === projectId
    );
    user.projects.splice(projectIndex, 1);
+   updateStorage();
 }
 
 function editProjectTitle(projectId, newTitle) {
@@ -43,7 +46,12 @@ function editProjectTitle(projectId, newTitle) {
       (project) => project.id === projectId
    );
    user.projects[projectIndex].title = newTitle;
+   updateStorage();
+}
+
+function updateStorage() {
+   localStorage.setItem("User", user);
 }
 
 export default createUser;
-export { user, addProject, removeProject };
+export { user, addProject, removeProject, updateStorage };
