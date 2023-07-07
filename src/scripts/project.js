@@ -1,5 +1,5 @@
 import { createTodoItem } from "./todo";
-import { users } from "./user";
+import { user } from "./user";
 
 let projectIds = 0;
 
@@ -24,7 +24,7 @@ function createProject(title) {
 }
 
 function addTodoToProject(title, desc, duedate, priority, projectId) {
-   let selectedProject = users[0].projects[projectId];
+   let selectedProject = user.projects[projectId];
    let projectTodosIds = selectedProject.todoIds++;
 
    selectedProject.todosList.push(
@@ -33,30 +33,29 @@ function addTodoToProject(title, desc, duedate, priority, projectId) {
 }
 
 function removeTodo(projectId, todoId) {
-   let projContainingTodo = users[0].projects[projectId].todosList;
+   let projContainingTodo = user.projects[projectId].todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.splice(todoIndex, 1);
 }
 
 function editTodoTitle(projectId, todoId, newTitle) {
-   let projContainingTodo = users[0].projects[projectId].todosList;
+   let projContainingTodo = user.projects[projectId].todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].title = newTitle;
 }
 
 function editTodoDesc(projectId, todoId, newDesc) {
-   let projContainingTodo = users[0].projects[projectId].todosList;
+   let projContainingTodo = user.projects[projectId].todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].description = newDesc;
 }
 
 function markAsComplete(projectId, todoId) {
-   let projContainingTodo = users[0].projects[projectId].todosList;
+   let projContainingTodo = user.projects[projectId].todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
 
    projContainingTodo.todosList[todoIndex].isComplete = true;
    removeTodo(projectId, todoId);
 }
-
 
 export { createProject, addTodoToProject, removeTodo };

@@ -1,6 +1,6 @@
 import { createProject } from "./project";
 
-let users = [];
+let user;
 
 let userIds = 0;
 
@@ -8,7 +8,7 @@ const User = (name) => {
    let state = {
       name: name,
       id: userIds++,
-      projects: [],
+      projects: []
    };
 
    return {
@@ -19,32 +19,31 @@ const User = (name) => {
 };
 
 function createUser(name) {
-   users.push(User(name));
-   console.log(users);
-   let userProjects = users[0].projects;
+   user = User(name);
+   let userProjects = user.projects;
    userProjects.push(createProject("default"));
 }
 
-function addProject(name) {
-   let userProjects = users[0].projects;
-   userProjects.push(createProject(name));
+function addProject(title) {
+   let userProjects = user.projects;
+   userProjects.push(createProject(title));
 }
 
 function removeProject(projectId) {
    if (projectId === 0) return;
 
-   let projectIndex = users[0].projects.findIndex(
+   let projectIndex = user.projects.findIndex(
       (project) => project.id === projectId
    );
-   users[0].projects.splice(projectIndex, 1);
+   user.projects.splice(projectIndex, 1);
 }
 
 function editProjectTitle(projectId, newTitle) {
-   let projectIndex = users[0].projects.findIndex(
+   let projectIndex = user.projects.findIndex(
       (project) => project.id === projectId
    );
-   users[0].projects[projectIndex].title = newTitle;
+   user.projects[projectIndex].title = newTitle;
 }
 
 export default createUser;
-export { users, addProject, removeProject };
+export { user, addProject, removeProject };
