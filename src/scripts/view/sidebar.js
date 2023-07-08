@@ -1,4 +1,4 @@
-import plusIcon from "./../../assets/icons/plus.svg"
+import plusIcon from "./../../assets/icons/plus-icon.png"
 
 const body = document.querySelector("body");
 
