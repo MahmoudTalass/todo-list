@@ -1,4 +1,4 @@
-import plusIcon from "../../assets/icons/plus.svg"
+import plusIcon from "./../../assets/icons/plus.svg"
 
 const body = document.querySelector("body");
 
@@ -22,7 +22,10 @@ function renderSidebar() {
 
    const addProjectBtn = document.createElement("button");
    addProjectBtn.classList.add("add-project-btn");
-   addProjectBtn.textContent = plusIcon;
+   const plusIconImg = new Image()
+   plusIconImg.src = plusIcon;
+   
+   addProjectBtn.appendChild(plusIconImg)
    addProjectBtn.id = "add-project-btn";
 
    const projectsContainer = document.createElement("div");
