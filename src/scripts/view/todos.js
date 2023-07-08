@@ -6,6 +6,11 @@ function renderTodo(title, description, duedate, priority, todoId) {
    const todoHeadContainer = document.createElement("div");
    todoHeadContainer.classList.add("todo-head-container");
 
+   const completedCheckMark = document.createElement("input")
+   completedCheckMark.type = 'checkbox'
+   completedCheckMark.id = "mark-as-complete-input"
+   completedCheckMark.classList.add("mark-as-complete-input");
+
    const todoTitle = document.createElement("p");
    todoTitle.classList.add("todo-title");
    todoTitle.textContent = title;
@@ -18,6 +23,7 @@ function renderTodo(title, description, duedate, priority, todoId) {
    todoDuedate.classList.add("todo-duedate");
    todoDuedate.textContent = duedate;
 
+   todoHeadContainer.appendChild(completedCheckMark)
    todoHeadContainer.appendChild(todoTitle);
    todoHeadContainer.appendChild(todoPriority);
    todoHeadContainer.appendChild(todoDuedate);
