@@ -1,9 +1,9 @@
 .header {
     height: 6rem;
-    background-color: #fff;
+    background-color: #87D68D;
     display: flex; 
     align-items: center;
-    margin-left: 2rem;
+    padding-left: 2rem;
 }
 
 .heading {
