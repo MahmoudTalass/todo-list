@@ -18,7 +18,7 @@
 
 .all-todos,
 .projects-heading {
-   font-size: 1.2rem;
+   font-size: 1.4rem;
 }
 
 .add-project-btn {
@@ -41,6 +41,14 @@
    transform: scale(1.1);
 }
 
+.projects-titles-container {
+   margin-left: 2rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   
+}
+
 /* Project title card */
 
 .project-container {
@@ -48,6 +56,10 @@
    align-items: center;
    justify-content: space-between;
    gap: 1rem;
+}
+
+.project-title {
+   font-size: 1.2rem;
 }
 
 .edit-title-btn {
@@ -61,8 +73,8 @@
 }
 
 .edit-icon-img {
-   width: 2rem;
-   height: 2rem;
+   width: 1.8rem;
+   height: 1.8rem;
    filter: brightness(0) invert(1);
 }
 
