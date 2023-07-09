@@ -18,9 +18,8 @@ function renderProject(projectId) {
    project.setAttribute("data-project-id", projectId);
 
    const addTaskBtn = document.createElement("div");
-   addTaskBtn.classList.add("add-task-btn");   
+   addTaskBtn.classList.add("add-task-btn");
    addTaskBtn.id = "add-task-btn";
-
 
    const addTaskIcon = new Image();
    addTaskIcon.classList.add("add-task-icon");
@@ -51,9 +50,11 @@ function renderProjectTitle(title, projectId) {
    sidebarProjectsCont.appendChild(projectTitle);
 }
 
-
 function renderAddProjectForm() {
    const form = document.createElement("form");
+   const formModal = document.createElement("div");
+   formModal.classList.add("form-modal");
+
    form.classList.add("add-project-form");
    form.id = "add-project-form";
 
@@ -63,8 +64,10 @@ function renderAddProjectForm() {
    const projectTitleInputLabel = document.createElement("label");
    projectTitleInputLabel.setAttribute("for", "project-title-input");
    projectTitleInputLabel.classList.add("project-title-input-label");
+   projectTitleInputLabel.textContent = "Project Title";
 
-   const projectTitleInput = document.createElement("input:text");
+   const projectTitleInput = document.createElement("input");
+   projectTitleInput.type = "text"
    projectTitleInput.id = "project-title-input";
    projectTitleInput.classList.add("project-title-input");
    projectTitleInput.name = "title";
@@ -76,9 +79,19 @@ function renderAddProjectForm() {
    const createProjectBtn = document.createElement("button");
    createProjectBtn.id = "create-project-btn";
    createProjectBtn.classList.add("create-project-btn");
+   createProjectBtn.textContent = "Add";
 
    form.appendChild(inputContainer);
    form.appendChild(createProjectBtn);
+
+   formModal.appendChild(form)
+
+   body.appendChild(formModal);
 }
 
-export { renderProjectsContainer, renderProjectTitle, renderProject };
+export {
+   renderProjectsContainer,
+   renderProjectTitle,
+   renderProject,
+   renderAddProjectForm,
+};
