@@ -30,9 +30,9 @@ function renderSidebar() {
 
    const projectsTitlesContainer = document.createElement("div");
    projectsTitlesContainer.classList.add("projects-titles-container");
-   projectsTitleContainer.id = "projects-titles-container";
+   projectsTitlesContainer.id = "projects-titles-container";
 
-   projectsCotHeading.appendChild(projectsHeading);
+   projectsContHeading.appendChild(projectsHeading);
    projectsContHeading.appendChild(addProjectBtn);
 
    sidebarElCont.appendChild(allTodos);
