@@ -18,8 +18,9 @@ function renderProject(projectId) {
    const addTaskBtn = document.createElement("button")
    addTaskBtn.classList.add("add-task-btn")
    addTaskBtn.id = "add-task-btn"
+   addTaskBtn.textContent = "Add Task"
 
-
+    project.appendChild(addTaskBtn)
    main.appendChild(project)
 }
 
