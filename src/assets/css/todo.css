@@ -2,29 +2,31 @@
    color: black;
    display: flex;
    width: 100%;
-    flex-direction: column;
-    gap: 1rem;
+   flex-direction: column;
+   gap: 1rem;
+   align-items: center;
+   justify-content: center;
 }
 
 .todo-head-container {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 1rem;
+   display: flex;
+   width: 100%;;
+   align-items: center;
+   gap: 1rem;
 }
 
 .todo-title {
-    margin-right: auto;
+   margin-right: auto;
 }
 
 .todo-duedate {
-    justify-self: end;;
+   justify-self: end;
 }
 
 .todo-container:not(:last-child) {
-    border-bottom: 1px solid #8491A3;
+   border-bottom: 1px solid #8491a3;
 }
 
 .todo-description {
-    display: none;
+   display: none;
 }
