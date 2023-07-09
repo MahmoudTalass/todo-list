@@ -17,22 +17,23 @@ function renderProject(projectId) {
    project.classList.add("project");
    project.setAttribute("data-project-id", projectId);
 
-   const addTaskBtnContainer = document.createElement("div");
-   addTaskBtnContainer.classList.add("add-task-btn-container");
-
-   const addTaskBtn = new Image();
-   addTaskBtn.classList.add("add-task-btn");
+   const addTaskBtn = document.createElement("div");
+   addTaskBtn.classList.add("add-task-btn");   
    addTaskBtn.id = "add-task-btn";
-   addTaskBtn.src = plusIcon;
+
+
+   const addTaskIcon = new Image();
+   addTaskIcon.classList.add("add-task-icon");
+   addTaskIcon.src = plusIcon;
 
    const addTaskText = document.createElement("p");
    addTaskText.classList.add("add-task-text");
    addTaskText.textContent = "Add Task";
 
-   addTaskBtnContainer.appendChild(addTaskBtn);
-   addTaskBtnContainer.appendChild(addTaskText);
+   addTaskBtn.appendChild(addTaskIcon);
+   addTaskBtn.appendChild(addTaskText);
 
-   project.appendChild(addTaskBtnContainer);
+   project.appendChild(addTaskBtn);
    main.appendChild(project);
 }
 

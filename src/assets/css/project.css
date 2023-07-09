@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-.add-task-btn-container {
+.add-task-btn {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -16,7 +16,7 @@
     margin-left: -5px;
 }
 
-.add-task-btn {
+.add-task-icon {
     width: 2rem;
 }
 
