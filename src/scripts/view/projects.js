@@ -15,16 +15,22 @@ function renderProject(projectId) {
    project.classList.add("project");
    project.setAttribute("data-project-id", projectId);
 
+   const addTaskBtn = document.createElement("button")
+   addTaskBtn.classList.add("add-task-btn")
+   addTaskBtn.id = "add-task-btn"
+
+
    main.appendChild(project)
 }
 
-function renderProjectTitle(title) {
+function renderProjectTitle(title, projectId) {
    const sidebarProjectsCont = document.querySelector(
       "#projects-titles-container"
    );
 
    const projectTitle = document.createElement("div")
    projectTitle.classList.add("project-name")
+   projectTitle.setAttribute("data-project-title-id", projectId)
 
    projectTitle.textContent = title;
 
