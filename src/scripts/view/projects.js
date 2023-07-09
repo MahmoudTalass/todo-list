@@ -1,3 +1,5 @@
+import plusIcon from "../../assets/icons/plus-icon.png";
+
 const body = document.querySelector("body");
 
 function renderProjectsContainer() {
@@ -15,13 +17,23 @@ function renderProject(projectId) {
    project.classList.add("project");
    project.setAttribute("data-project-id", projectId);
 
-   const addTaskBtn = document.createElement("button")
-   addTaskBtn.classList.add("add-task-btn")
-   addTaskBtn.id = "add-task-btn"
-   addTaskBtn.textContent = "Add Task"
+   const addTaskBtnContainer = document.createElement("div");
+   addTaskBtnContainer.classList.add("add-task-btn-container");
 
-    project.appendChild(addTaskBtn)
-   main.appendChild(project)
+   const addTaskBtn = new Image();
+   addTaskBtn.classList.add("add-task-btn");
+   addTaskBtn.id = "add-task-btn";
+   addTaskBtn.src = plusIcon;
+
+   const addTaskText = document.createElement("p");
+   addTaskText.classList.add("add-task-text");
+   addTaskText.textContent = "Add Task";
+
+   addTaskBtnContainer.appendChild(addTaskBtn);
+   addTaskBtnContainer.appendChild(addTaskText);
+
+   project.appendChild(addTaskBtnContainer);
+   main.appendChild(project);
 }
 
 function renderProjectTitle(title, projectId) {
@@ -29,13 +41,13 @@ function renderProjectTitle(title, projectId) {
       "#projects-titles-container"
    );
 
-   const projectTitle = document.createElement("div")
-   projectTitle.classList.add("project-name")
-   projectTitle.setAttribute("data-project-title-id", projectId)
+   const projectTitle = document.createElement("div");
+   projectTitle.classList.add("project-name");
+   projectTitle.setAttribute("data-project-title-id", projectId);
 
    projectTitle.textContent = title;
 
-   sidebarProjectsCont.appendChild(projectTitle)
+   sidebarProjectsCont.appendChild(projectTitle);
 }
 
 export { renderProjectsContainer, renderProjectTitle, renderProject };
