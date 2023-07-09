@@ -3,6 +3,7 @@
    display: flex;
    width: 100%;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .todo-head-container {
@@ -24,8 +25,6 @@
     border-bottom: 1px solid #8491A3;
 }
 
-
-
-/* .todo-description {
+.todo-description {
     display: none;
-} */
+}
