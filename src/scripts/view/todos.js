@@ -44,9 +44,8 @@ function renderTodo(title, description, duedate, priority, todoId) {
 }
 
 function appendTodoToProject(projectId, todoItem) {
-   const project = document.querySelectorAll(".project")
-   console.log(project[0].getAttribute("data-project-id"))
-   project[0].appendChild(todoItem)
+   const project = document.querySelector(`[data-project-id="${projectId}"]`)
+   project.appendChild(todoItem)
 }
 
 export { renderTodo, appendTodoToProject }
