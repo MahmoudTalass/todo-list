@@ -13,6 +13,7 @@
    display: flex;
    align-items: center;
    gap: 1rem;
+   justify-content: space-between;
 }
 
 .all-todos,
@@ -31,12 +32,40 @@
 }
 
 .add-project-btn > img {
-   width: fit-content;
+   width: 2.2rem;
+   height: 2.2rem;
+   filter: brightness(0) invert(1);
+}
+
+.add-project-btn:active {
+   transform: scale(1.1);
+}
+
+/* Project title card */
+
+.project-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
+}
+
+.edit-title-btn {
+   display: flex;
+   padding: 0;
+   align-items: center;
+   justify-content: center;
+   background-color: transparent;
+   border: 1px solid white;
+   border: none;
+}
+
+.edit-icon-img {
    width: 2rem;
    height: 2rem;
    filter: brightness(0) invert(1);
 }
 
-.add-project-btn:active {
-   transform: scale(1.05);
+.edit-title-btn:active {
+   transform: scale(1.1);
 }
