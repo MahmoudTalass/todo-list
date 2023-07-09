@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+body {
+   display: grid;
+   grid-template-columns: 1fr 5fr;
+   grid-template-rows: auto 5fr;
+   height: 100vh;
+   color: #fff;
+   font-family: "Poppins", sans-serif;
+}
+
+.header {
+   align-self: baseline;
+   grid-column: 1/3;
+}
