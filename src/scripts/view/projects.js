@@ -8,4 +8,27 @@ function renderProjectsContainer() {
    body.appendChild(main);
 }
 
-export { renderProjectsContainer };
+function renderProject(projectId) {
+   const main = document.querySelector("#projects-container");
+
+   const project = document.createElement("div");
+   project.classList.add("project");
+   project.setAttribute("data-project-id", projectId);
+
+   main.appendChild(project)
+}
+
+function renderProjectTitle(title) {
+   const sidebarProjectsCont = document.querySelector(
+      "#projects-titles-container"
+   );
+
+   const projectTitle = document.createElement("div")
+   projectTitle.classList.add("project-name")
+
+   projectTitle.textContent = title;
+
+   sidebarProjectsCont.appendChild(projectTitle)
+}
+
+export { renderProjectsContainer, renderProjectTitle, renderProject };
