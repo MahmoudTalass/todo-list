@@ -1,5 +1,6 @@
 .projects-container {
-   padding: 3rem;   
+   padding: 3rem;  
+   color: black; 
 }
 
 .project {
@@ -7,9 +8,16 @@
     flex-direction: column;
 }
 
-.add-task-btn {
+.add-task-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 1rem;
-    align-self: flex-start;
+    margin-left: -5px;
+}
+
+.add-task-btn {
+    width: 2rem;
 }
 
 
