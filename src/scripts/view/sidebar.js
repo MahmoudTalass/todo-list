@@ -28,16 +28,16 @@ function renderSidebar() {
    addProjectBtn.appendChild(plusIconImg)
    addProjectBtn.id = "add-project-btn";
 
-   const projectsContainer = document.createElement("div");
-   projectsContainer.classList.add("projects-container");
-   projectsContainer.id = "projects-container";
+   const projectsTitlesContainer = document.createElement("div");
+   projectsTitlesContainer.classList.add("projects-titles-container");
+   projectsTitleContainer.id = "projects-titles-container";
 
-   projectsContHeading.appendChild(projectsHeading);
+   projectsCotHeading.appendChild(projectsHeading);
    projectsContHeading.appendChild(addProjectBtn);
 
    sidebarElCont.appendChild(allTodos);
    sidebarElCont.appendChild(projectsContHeading);
-   sidebarElCont.appendChild(projectsContainer);
+   sidebarElCont.appendChild(projectsTitlesContainer);
 
    sidebar.appendChild(sidebarElCont);
 
