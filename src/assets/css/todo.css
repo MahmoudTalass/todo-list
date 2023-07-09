@@ -23,6 +23,15 @@
    justify-self: end;
 }
 
+.edit-todo-btn {
+   background-color: transparent;
+   border: none;
+}
+
+.edit-todo-icon {
+   width: 1.4rem;
+}
+
 .todo-container:not(:last-child) {
    border-bottom: 1px solid #8491a3;
 }
