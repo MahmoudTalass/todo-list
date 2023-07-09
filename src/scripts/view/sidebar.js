@@ -10,7 +10,7 @@ function renderSidebar() {
    sidebarElCont.classList.add("sidebar-element-container");
 
    const allTodos = document.createElement("div");
-   sidebarElCont.classList.add("all-todos");
+   allTodos.classList.add("all-todos");
    allTodos.textContent = "All";
 
    const projectsContHeading = document.createElement("div");
