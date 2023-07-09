@@ -1,4 +1,5 @@
 import plusIcon from "../../assets/icons/plus-icon.png";
+import editIcon from "../../assets/icons/edit-icon.png";
 
 const body = document.querySelector("body");
 
@@ -41,13 +42,29 @@ function renderProjectTitle(title, projectId) {
       "#projects-titles-container"
    );
 
-   const projectTitle = document.createElement("div");
-   projectTitle.classList.add("project-name");
-   projectTitle.setAttribute("data-project-title-id", projectId);
+   const projectContainer = document.createElement("div");
+   projectContainer.classList.add("project-container");
+   projectContainer.setAttribute("data-project-title-id", projectId);
+
+   const projectTitle = document.createElement("p");
+   projectTitle.classList.add("project-title");
 
    projectTitle.textContent = title;
 
-   sidebarProjectsCont.appendChild(projectTitle);
+   const editTitleBtn = document.createElement("btn");
+   editTitleBtn.classList.add("edit-title-btn");
+   editTitleBtn.id = "edit-title-btn";
+
+   const editIconImg = new Image();
+   editIconImg.classList.add("edit-icon-img");
+   editIconImg.src = editIcon;
+
+   editTitleBtn.appendChild(editIconImg);
+
+   projectContainer.appendChild(projectTitle);
+   projectContainer.appendChild(editTitleBtn);
+
+   sidebarProjectsCont.appendChild(projectContainer);
 }
 
 function renderAddProjectForm() {
@@ -67,7 +84,7 @@ function renderAddProjectForm() {
    projectTitleInputLabel.textContent = "Project Title";
 
    const projectTitleInput = document.createElement("input");
-   projectTitleInput.type = "text"
+   projectTitleInput.type = "text";
    projectTitleInput.id = "project-title-input";
    projectTitleInput.classList.add("project-title-input");
    projectTitleInput.name = "title";
@@ -84,7 +101,7 @@ function renderAddProjectForm() {
    form.appendChild(inputContainer);
    form.appendChild(createProjectBtn);
 
-   formModal.appendChild(form)
+   formModal.appendChild(form);
 
    body.appendChild(formModal);
 }
