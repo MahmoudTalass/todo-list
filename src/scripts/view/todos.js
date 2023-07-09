@@ -6,9 +6,9 @@ function renderTodo(title, description, duedate, priority, todoId) {
    const todoHeadContainer = document.createElement("div");
    todoHeadContainer.classList.add("todo-head-container");
 
-   const completedCheckMark = document.createElement("input")
-   completedCheckMark.type = 'checkbox'
-   completedCheckMark.id = "mark-as-complete-input"
+   const completedCheckMark = document.createElement("input");
+   completedCheckMark.type = "checkbox";
+   completedCheckMark.id = "mark-as-complete-input";
    completedCheckMark.classList.add("mark-as-complete-input");
 
    const todoTitle = document.createElement("p");
@@ -23,10 +23,16 @@ function renderTodo(title, description, duedate, priority, todoId) {
    todoDuedate.classList.add("todo-duedate");
    todoDuedate.textContent = duedate;
 
-   todoHeadContainer.appendChild(completedCheckMark)
+   const editTodoBtn = document.createElement("button");
+   editTodoBtn.id = "edit-todo-btn";
+   editTodoBtn.classList.add("edit-todo-btn");
+   editTodoBtn.textContent = "Edit"
+
+   todoHeadContainer.appendChild(completedCheckMark);
    todoHeadContainer.appendChild(todoTitle);
    todoHeadContainer.appendChild(todoPriority);
    todoHeadContainer.appendChild(todoDuedate);
+   todoHeadContainer.appendChild(editTodoBtn);
 
    const detailsContainer = document.createElement("div");
    detailsContainer.classList.add("todo-details-container");
@@ -44,8 +50,8 @@ function renderTodo(title, description, duedate, priority, todoId) {
 }
 
 function appendTodoToProject(projectId, todoItem) {
-   const project = document.querySelector(`[data-project-id="${projectId}"]`)
-   project.appendChild(todoItem)
+   const project = document.querySelector(`[data-project-id="${projectId}"]`);
+   project.appendChild(todoItem);
 }
 
-export { renderTodo, appendTodoToProject }
+export { renderTodo, appendTodoToProject };
