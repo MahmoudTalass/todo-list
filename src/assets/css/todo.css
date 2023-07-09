@@ -1,0 +1,31 @@
+.todo-container {
+   color: black;
+   display: flex;
+   width: 100%;
+    flex-direction: column;
+}
+
+.todo-head-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+
+.todo-title {
+    margin-right: auto;
+}
+
+.todo-duedate {
+    justify-self: end;;
+}
+
+.todo-container:not(:last-child) {
+    border-bottom: 1px solid #8491A3;
+}
+
+
+
+/* .todo-description {
+    display: none;
+} */
