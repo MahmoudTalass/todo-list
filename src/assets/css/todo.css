@@ -6,6 +6,7 @@
    gap: 1rem;
    align-items: center;
    justify-content: center;
+   padding-top: 1rem;
 }
 
 .todo-head-container {
