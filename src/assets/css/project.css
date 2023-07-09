@@ -1,24 +1,76 @@
 .projects-container {
-   padding: 3rem;  
-   color: black; 
+   padding: 3rem;
+   color: black;
+   display: flex;
+   justify-content: center;
 }
 
 .project {
-    display: flex;
-    flex-direction: column;
+   display: flex;
+   flex-direction: column;
+   width: min(1000px, 100%);
+   align-items: center;
 }
 
 .add-task-btn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    margin-left: -5px;
+   display: flex;
+   align-self: flex-start;
+   align-items: center;
+   gap: 1rem;
+   margin-bottom: 2rem;
+   margin-left: -5px;
 }
 
 .add-task-icon {
-    width: 2rem;
+   width: 2rem;
 }
 
+/* Add project Form */
 
+.form-modal {
+   position: fixed;
+   background-color: rgba(0, 0, 0, 0.3);
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   overflow: auto;
+   z-index: 1;
+   display: none;
+}
+
+.add-project-form {
+   background-color: #93B48B;
+   width: 300px;
+   height: 180px;
+   display: flex;
+   flex-direction: column;
+   padding: 1.5rem;
+   margin: 200px auto;
+   gap: 1.5rem;
+   border-radius: .3rem;
+}
+
+.add-project-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-title-input {
+    border-radius: .3rem;
+    border: none;
+    height: 1.5rem;
+}
+
+.create-project-btn {
+    background-color: #87D68D;
+    border: none;
+    color: inherit;
+    width: clamp(5rem, 50%, 10rem);
+    height: 2rem;
+    align-self: center;
+    border-radius: .3rem;
+    margin-top: auto;
+}
 
