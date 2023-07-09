@@ -2,11 +2,12 @@
 
 body {
    display: grid;
-   grid-template-columns: 1fr 5fr;
+   grid-template-columns: 1fr 4fr;
    grid-template-rows: auto 5fr;
    height: 100vh;
    color: #fff;
    font-family: "Poppins", sans-serif;
+   position: relative;
 }
 
 .header {
