@@ -27,6 +27,7 @@
    justify-content: center;
    background-color: transparent;
    border: 1px solid white;
+   border: none;
 }
 
 .add-project-btn > img {
