@@ -1,4 +1,4 @@
-import plusIcon from "./../../assets/icons/plus-icon.png"
+import plusIcon from "./../../assets/icons/plus-icon.png";
 
 const body = document.querySelector("body");
 
@@ -22,10 +22,10 @@ function renderSidebar() {
 
    const addProjectBtn = document.createElement("button");
    addProjectBtn.classList.add("add-project-btn");
-   const plusIconImg = new Image()
+   const plusIconImg = new Image();
    plusIconImg.src = plusIcon;
-   
-   addProjectBtn.appendChild(plusIconImg)
+
+   addProjectBtn.appendChild(plusIconImg);
    addProjectBtn.id = "add-project-btn";
 
    const projectsTitlesContainer = document.createElement("div");
@@ -41,7 +41,7 @@ function renderSidebar() {
 
    sidebar.appendChild(sidebarElCont);
 
-   body.appendChild(sidebar)
+   body.appendChild(sidebar);
 }
 
-export default renderSidebar
+export default renderSidebar;
