@@ -7,7 +7,7 @@ function renderHeader() {
    const heading = document.createElement("h1");
    heading.classList.add("heading");
 
-   heading.textContent = "Todo";
+   heading.textContent = "To-do";
 
    header.appendChild(heading)
 
