@@ -34,6 +34,8 @@
    width: 2rem;
    height: 2rem;
    filter: brightness(0) invert(1);
+}
 
-
+.add-project-btn:active {
+   transform: scale(1.05);
 }
