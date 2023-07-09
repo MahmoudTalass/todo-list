@@ -1,3 +1,5 @@
+import editIcon from "../../assets/icons/edit-icon.png"
+
 function renderTodo(title, description, duedate, priority, todoId) {
    const todoContainer = document.createElement("div");
    todoContainer.classList.add("todo-container");
@@ -26,7 +28,12 @@ function renderTodo(title, description, duedate, priority, todoId) {
    const editTodoBtn = document.createElement("button");
    editTodoBtn.id = "edit-todo-btn";
    editTodoBtn.classList.add("edit-todo-btn");
-   editTodoBtn.textContent = "Edit"
+   
+   const editIconImg = new Image()
+   editIconImg.src = editIcon;
+   editIconImg.classList.add("edit-todo-icon")
+
+   editTodoBtn.appendChild(editIconImg)
 
    todoHeadContainer.appendChild(completedCheckMark);
    todoHeadContainer.appendChild(todoTitle);
