@@ -40,3 +40,9 @@
 .todo-description {
    display: none;
 }
+
+/* Add todo form */
+
+.add-todo-form-modal {
+   display: none;
+}
