@@ -24,14 +24,21 @@
    justify-self: end;
 }
 
-.edit-todo-btn {
+.edit-todo-btn, .remove-todo-btn {
    background-color: transparent;
    border: none;
 }
 
-.edit-todo-icon {
+.edit-todo-icon, .remove-todo-icon {
    width: 1.4rem;
 }
+
+.edit-todo-btn:active,
+.remove-todo-btn:active {
+   transform: scale(1.1);
+}
+
+
 
 .todo-container:not(:last-child) {
    border-bottom: 1px solid #8491a3;
@@ -44,7 +51,7 @@
 /* Add todo form */
 
 .add-todo-form-modal {
-   display: block;
+   display: none;
 }
 
 .add-todo-form {
