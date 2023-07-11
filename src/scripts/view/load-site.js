@@ -8,20 +8,10 @@ function renderPage() {
     renderSidebar()
     renderProjectsContainer()
 
-    renderProject(0)
-    renderProjectTitle("myProject", 0)
-    appendTodoToProject(0, renderTodo("task1", "desc", "1/1/2002", "normal", 1))
+    // renderProject(0)
+    // renderProjectTitle("myProject", 0)
+    // appendTodoToProject(0, renderTodo("task1", "desc", "1/1/2002", "normal", 1))
 
-        renderProjectTitle("myProject", 0);
-
-    appendTodoToProject(
-       0,
-       renderTodo("task1", "desc", "1/1/2002", "normal", 1)
-    );
-     appendTodoToProject(
-        0,
-        renderTodo("task1", "desc", "1/1/2002", "normal", 1)
-     );
     
 
     renderAddTodoForm();
