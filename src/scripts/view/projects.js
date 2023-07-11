@@ -135,4 +135,5 @@ export {
    renderProjectTitle,
    renderProject,
    renderAddProjectForm,
+   getProjectTitleFromForm
 };
