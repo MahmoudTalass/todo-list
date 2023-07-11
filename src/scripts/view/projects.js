@@ -61,9 +61,9 @@ function renderProjectTitle(title, projectId) {
 
    const trashIconImg = new Image();
    trashIconImg.src = trashIcon;
-   trashIconImg.classList.add("remove-project-icon")
+   trashIconImg.classList.add("remove-project-icon");
 
-   removeProjectBtn.appendChild(trashIconImg)
+   removeProjectBtn.appendChild(trashIconImg);
 
    const editTitleBtn = document.createElement("button");
    editTitleBtn.classList.add("edit-title-btn");
@@ -75,8 +75,8 @@ function renderProjectTitle(title, projectId) {
 
    editTitleBtn.appendChild(editIconImg);
 
-   projectUtilityBtns.appendChild(editTitleBtn)
-   projectUtilityBtns.appendChild(removeProjectBtn)
+   projectUtilityBtns.appendChild(editTitleBtn);
+   projectUtilityBtns.appendChild(removeProjectBtn);
 
    projectContainer.appendChild(projectTitle);
    projectContainer.appendChild(projectUtilityBtns);
@@ -89,7 +89,7 @@ function renderAddProjectForm() {
    const form = document.createElement("form");
 
    formModal.classList.add("form-modal", "add-project-form-modal");
-   formModal.id = "add-project-form-modal"
+   formModal.id = "add-project-form-modal";
    form.classList.add("add-project-form");
    form.id = "add-project-form";
 
@@ -124,10 +124,15 @@ function renderAddProjectForm() {
    body.appendChild(formModal);
 }
 
-function getProjectTitleFromForm() {
+function getProjectTitleInput() {
    const addProjectInput = document.querySelector("#project-title-input");
 
    return addProjectInput.value;
+}
+
+function clearProjectTitleInput() {
+   const addProjectInput = document.querySelector("#project-title-input");
+   addProjectInput.value = "";
 }
 
 export {
@@ -135,5 +140,6 @@ export {
    renderProjectTitle,
    renderProject,
    renderAddProjectForm,
-   getProjectTitleFromForm
+   getProjectTitleInput,
+   clearProjectTitleInput
 };
