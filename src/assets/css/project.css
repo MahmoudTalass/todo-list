@@ -30,8 +30,6 @@
    transform: scale(1.02);
 }
 
-
-
 /* Project title card */
 
 .project-container {
@@ -39,6 +37,7 @@
    align-items: center;
    justify-content: space-between;
    gap: 2rem;
+   cursor: pointer;
 }
 
 .project-title {
@@ -47,10 +46,10 @@
 
 .project-utility-btns {
    display: flex;
-   gap: 1rem
+   gap: 1rem;
 }
 
-.edit-title-btn, 
+.edit-title-btn,
 .remove-project-btn {
    display: flex;
    padding: 0;
@@ -60,7 +59,8 @@
    border: none;
 }
 
-.edit-project-icon, .remove-project-icon {
+.edit-project-icon,
+.remove-project-icon {
    width: 1.8rem;
    height: 1.8rem;
    filter: brightness(0) invert(1);
@@ -70,13 +70,10 @@
    height: 1.6rem;
 }
 
-.edit-title-btn:active, .remove-project-btn:active
- {
+.edit-title-btn:active,
+.remove-project-btn:active {
    transform: scale(1.1);
 }
-
-
-
 
 /* Add project Form */
 
@@ -93,25 +90,24 @@
 }
 
 .add-project-input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
 }
 
 .project-title-input {
-    border-radius: .3rem;
-    border: none;
-    height: 1.5rem;
+   border-radius: 0.3rem;
+   border: none;
+   height: 1.5rem;
 }
 
 .create-project-btn {
-    background-color: var(--color4);
-    border: none;
-    color: inherit;
-    width: clamp(5rem, 50%, 10rem);
-    height: 2rem;
-    align-self: center;
-    border-radius: .3rem;
-    margin-top: auto;
+   background-color: var(--color4);
+   border: none;
+   color: inherit;
+   width: clamp(5rem, 50%, 10rem);
+   height: 2rem;
+   align-self: center;
+   border-radius: 0.3rem;
+   margin-top: auto;
 }
-
