@@ -26,6 +26,10 @@
    width: 2rem;
 }
 
+.add-task-btn:active {
+   transform: scale(1.02);
+}
+
 
 
 /* Project title card */
