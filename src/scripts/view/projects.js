@@ -1,5 +1,6 @@
 import plusIcon from "../../assets/icons/plus-icon.png";
 import editIcon from "../../assets/icons/edit-icon.png";
+import trashIcon from "../../assets/icons/trash-icon.png";
 
 const body = document.querySelector("body");
 
@@ -51,18 +52,34 @@ function renderProjectTitle(title, projectId) {
 
    projectTitle.textContent = title;
 
-   const editTitleBtn = document.createElement("btn");
+   const projectUtilityBtns = document.createElement("div");
+   projectUtilityBtns.classList.add("project-utility-btns");
+
+   const removeProjectBtn = document.createElement("button");
+   removeProjectBtn.classList.add("remove-project-btn");
+   removeProjectBtn.id = "remove-project-btn";
+
+   const trashIconImg = new Image();
+   trashIconImg.src = trashIcon;
+   trashIconImg.classList.add("remove-project-icon")
+
+   removeProjectBtn.appendChild(trashIconImg)
+
+   const editTitleBtn = document.createElement("button");
    editTitleBtn.classList.add("edit-title-btn");
    editTitleBtn.id = "edit-title-btn";
 
    const editIconImg = new Image();
-   editIconImg.classList.add("edit-icon-img");
    editIconImg.src = editIcon;
+   editIconImg.classList.add("edit-project-icon");
 
    editTitleBtn.appendChild(editIconImg);
 
+   projectUtilityBtns.appendChild(editTitleBtn)
+   projectUtilityBtns.appendChild(removeProjectBtn)
+
    projectContainer.appendChild(projectTitle);
-   projectContainer.appendChild(editTitleBtn);
+   projectContainer.appendChild(projectUtilityBtns);
 
    sidebarProjectsCont.appendChild(projectContainer);
 }
