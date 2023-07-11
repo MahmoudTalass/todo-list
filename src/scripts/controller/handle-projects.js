@@ -1,3 +1,6 @@
+import { getProjectTitleFromForm } from "../view/projects";
+import { addProject, user } from "../model/user";
+
 function handleProjects() {
    const addProjectBtn = document.querySelector("#add-project-btn");
 
@@ -6,15 +9,24 @@ function handleProjects() {
       "#add-project-form-modal"
    );
 
+   // Display add project form
    addProjectBtn.addEventListener("click", () => {
-      console.log("yes");
       addProjectFormModal.style.display = "block";
    });
 
+   // Remove add project form when user clicks on window
    window.addEventListener("click", (e) => {
       if (e.target === addProjectFormModal) {
          addProjectFormModal.style.display = "none";
       }
+   });
+
+   addProjectForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const projectTitle= getProjectTitleFromForm();
+      addProject(projectTitle)
+      console.log(user)
+
    });
 }
 
