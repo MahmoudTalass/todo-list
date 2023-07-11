@@ -22,11 +22,12 @@ function renderSidebar() {
 
    const addProjectBtn = document.createElement("button");
    addProjectBtn.classList.add("add-project-btn");
+   addProjectBtn.id = "add-project-btn";
+
    const plusIconImg = new Image();
    plusIconImg.src = plusIcon;
 
    addProjectBtn.appendChild(plusIconImg);
-   addProjectBtn.id = "add-project-btn";
 
    const projectsTitlesContainer = document.createElement("div");
    projectsTitlesContainer.classList.add("projects-titles-container");
