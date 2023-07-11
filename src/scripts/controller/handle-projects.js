@@ -26,6 +26,10 @@ function handleProjects() {
       }
    });
 
+   /* 
+   * When add project form is submitted, create a card
+   * title slot for the project along with the utility buttons
+   */
    addProjectForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const projectTitle = getProjectTitleInput();
