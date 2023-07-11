@@ -24,12 +24,14 @@
    justify-self: end;
 }
 
-.edit-todo-btn, .remove-todo-btn {
+.edit-todo-btn,
+.remove-todo-btn {
    background-color: transparent;
    border: none;
 }
 
-.edit-todo-icon, .remove-todo-icon {
+.edit-todo-icon,
+.remove-todo-icon {
    width: 1.4rem;
 }
 
@@ -37,8 +39,6 @@
 .remove-todo-btn:active {
    transform: scale(1.1);
 }
-
-
 
 .todo-container:not(:last-child) {
    border-bottom: 1px solid var(--color3);
