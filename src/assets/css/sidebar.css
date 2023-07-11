@@ -42,42 +42,8 @@
 }
 
 .projects-titles-container {
-   margin-left: 2rem;
+   margin-left: 1.5rem;
    display: flex;
    flex-direction: column;
    gap: 1rem;
-   
-}
-
-/* Project title card */
-
-.project-container {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   gap: 1rem;
-}
-
-.project-title {
-   font-size: 1.2rem;
-}
-
-.edit-title-btn {
-   display: flex;
-   padding: 0;
-   align-items: center;
-   justify-content: center;
-   background-color: transparent;
-   border: 1px solid white;
-   border: none;
-}
-
-.edit-icon-img {
-   width: 1.8rem;
-   height: 1.8rem;
-   filter: brightness(0) invert(1);
-}
-
-.edit-title-btn:active {
-   transform: scale(1.1);
 }
