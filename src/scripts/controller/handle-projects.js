@@ -1,4 +1,9 @@
-import { getProjectTitleFromForm } from "../view/projects";
+import {
+   clearProjectTitleInput,
+   getProjectTitleInput,
+   renderProject,
+   renderProjectTitle,
+} from "../view/projects";
 import { addProject, user } from "../model/user";
 
 function handleProjects() {
@@ -23,10 +28,13 @@ function handleProjects() {
 
    addProjectForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const projectTitle= getProjectTitleFromForm();
-      addProject(projectTitle)
-      console.log(user)
+      const projectTitle = getProjectTitleInput();
+      addProject(projectTitle);
 
+      let lastAddedProject = user.projects[user.projects.length - 1];
+      renderProjectTitle(projectTitle, lastAddedProject);
+      clearProjectTitleInput();
+      addProjectFormModal.style.display = "none";
    });
 }
 
