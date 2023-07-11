@@ -1,6 +1,6 @@
 .projects-container {
    padding: 3rem;
-   color: black;
+   color: var(--color6);
    display: flex;
    justify-content: center;
 }
@@ -52,7 +52,6 @@
    align-items: center;
    justify-content: center;
    background-color: transparent;
-   border: 1px solid white;
    border: none;
 }
 
@@ -101,7 +100,7 @@
 }
 
 .create-project-btn {
-    background-color: #87D68D;
+    background-color: var(--color4);
     border: none;
     color: inherit;
     width: clamp(5rem, 50%, 10rem);

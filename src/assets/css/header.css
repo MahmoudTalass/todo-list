@@ -1,6 +1,6 @@
 .header {
     height: 6rem;
-    background-color: #87D68D;
+    background-color: var(--color4);
     display: flex; 
     align-items: center;
     padding-left: 2rem;

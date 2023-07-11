@@ -1,11 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+* {
+   --color1: #F7FFF6;
+   --color2: #93b48b;
+   --color3: #8491a3;
+   --color4: #87d68d;
+   --color5: #bcebcb;
+   --color6: #000;
+}
+
+
 body {
    display: grid;
    grid-template-columns: 1fr 4fr;
    grid-template-rows: auto 5fr;
    height: 100vh;
-   color: #fff;
+   color: var(--color1);
    font-family: "Poppins", sans-serif;
    position: relative;
 }
@@ -30,7 +40,7 @@ body {
 form {
    padding: 1.5rem;
    margin: 200px auto;
-   background-color: #93b48b;
+   background-color: var(--color2);
    border-radius: 0.3rem;
 }
 

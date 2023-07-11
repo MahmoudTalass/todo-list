@@ -1,5 +1,5 @@
 .sidebar {
-   background-color: #bcebcb;
+   background-color: var(--color5);
 }
 
 .sidebar-element-container {
@@ -27,7 +27,6 @@
    align-items: center;
    justify-content: center;
    background-color: transparent;
-   border: 1px solid white;
    border: none;
 }
 

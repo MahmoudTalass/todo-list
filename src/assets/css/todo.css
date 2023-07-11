@@ -1,5 +1,5 @@
 .todo-container {
-   color: black;
+   color: var(--color6);
    display: flex;
    width: 100%;
    flex-direction: column;
@@ -41,7 +41,7 @@
 
 
 .todo-container:not(:last-child) {
-   border-bottom: 1px solid #8491a3;
+   border-bottom: 1px solid var(--color3);
 }
 
 .todo-description {
@@ -95,7 +95,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: #87d68d;
+   background-color: var(--color4);
    width: 50%;
    width: clamp(5rem, 50%, 10rem);
    height: 2rem;
