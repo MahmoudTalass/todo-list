@@ -1,5 +1,9 @@
-import loadLocalStorage from "./load-localStorage"
+import loadLocalStorage from "./load-localStorage";
+import { createUser } from "../model/user";
 
-document.addEventListener("load", () => {
-    
-})
+function initialLoad() {
+   createUser("mahmoud");
+}
+
+
+export default initialLoad
