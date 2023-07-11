@@ -70,8 +70,8 @@ function renderProjectTitle(title, projectId) {
 function renderAddProjectForm() {
    const formModal = document.createElement("div");
    const form = document.createElement("form");
-   formModal.classList.add("form-modal");
 
+   formModal.classList.add("form-modal", "add-project-form-modal");
    form.classList.add("add-project-form");
    form.id = "add-project-form";
 
