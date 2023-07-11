@@ -124,6 +124,12 @@ function renderAddProjectForm() {
    body.appendChild(formModal);
 }
 
+function getProjectTitleFromForm() {
+   const addProjectInput = document.querySelector("#project-title-input");
+
+   return addProjectInput.value;
+}
+
 export {
    renderProjectsContainer,
    renderProjectTitle,
