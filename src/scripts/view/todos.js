@@ -1,7 +1,7 @@
-import editIcon from "../../assets/icons/edit-icon.png"
+import editIcon from "../../assets/icons/edit-icon.png";
 import { format } from "date-fns";
 
-const body = document.querySelector("body")
+const body = document.querySelector("body");
 
 function renderTodo(title, description, duedate, priority, todoId) {
    const todoContainer = document.createElement("div");
@@ -31,12 +31,12 @@ function renderTodo(title, description, duedate, priority, todoId) {
    const editTodoBtn = document.createElement("button");
    editTodoBtn.id = "edit-todo-btn";
    editTodoBtn.classList.add("edit-todo-btn");
-   
-   const editIconImg = new Image()
-   editIconImg.src = editIcon;
-   editIconImg.classList.add("edit-todo-icon")
 
-   editTodoBtn.appendChild(editIconImg)
+   const editIconImg = new Image();
+   editIconImg.src = editIcon;
+   editIconImg.classList.add("edit-todo-icon");
+
+   editTodoBtn.appendChild(editIconImg);
 
    todoHeadContainer.appendChild(completedCheckMark);
    todoHeadContainer.appendChild(todoTitle);
@@ -61,128 +61,128 @@ function renderTodo(title, description, duedate, priority, todoId) {
 
 function renderAddTodoForm() {
    const formModal = document.createElement("div");
-   const form = document.createElement("form")
-   const formHeading = document.createElement("p")
+   const form = document.createElement("form");
+   const formHeading = document.createElement("p");
 
-   formModal.classList.add("form-modal")
-   form.classList.add("add-todo-form")
-   form.id = "add-todo-form"
-   formHeading.classList.add("add-todo-form-heading")
+   formModal.classList.add("form-modal", "add-todo-form-modal");
+   form.classList.add("add-todo-form");
+   form.id = "add-todo-form";
+   formHeading.classList.add("add-todo-form-heading");
+   formHeading.textContent = "Add task";
 
-   const allInputsContainer = document.createElement("section")
+   const allInputsContainer = document.createElement("section");
+   allInputsContainer.classList.add("add-todo-inputs-container");
 
-   const input1Container = document.createElement("div")
-   input1Container.classList.add("input-container")
-   
-   const todoTitleLabel = document.createElement("label")
-   todoTitleLabel.setAttribute("for", "todo-title-input")
-   todoTitleLabel.classList.add("todo-title-input-label")
-   todoTitleLabel.textContent = "Title"
+   const input1Container = document.createElement("div");
+   input1Container.classList.add("input-container");
 
-   const todoTitleInput = document.createElement("input")
+   const todoTitleLabel = document.createElement("label");
+   todoTitleLabel.setAttribute("for", "todo-title-input");
+   todoTitleLabel.classList.add("todo-title-input-label");
+   todoTitleLabel.textContent = "Title";
+
+   const todoTitleInput = document.createElement("input");
    todoTitleInput.type = "text";
-   todoTitleInput.id = "todo-title-input"
-   todoTitleInput.classList.add("todo-title-input")
-   todoTitleInput.name = "todo-title"
+   todoTitleInput.id = "todo-title-input";
+   todoTitleInput.classList.add("todo-title-input", "todo-form-input");
+   todoTitleInput.name = "todo-title";
    todoTitleInput.required = true;
 
-   input1Container.appendChild(todoTitleLabel)
-   input1Container.appendChild(todoTitleInput)
-
+   input1Container.appendChild(todoTitleLabel);
+   input1Container.appendChild(todoTitleInput);
 
    const input2Container = document.createElement("div");
    input2Container.classList.add("input-container");
-   
-   const todoDuedateLabel = document.createElement("label")
-   todoDuedateLabel.setAttribute('for', "todo-duedate-input")
-   todoDuedateLabel.classList.add("todo-duedate-label")
-   todoDuedateLabel.textContent = "Due date"
 
-   const todoDuedateInput = document.createElement("input")
-   todoDuedateInput.type = "date"
-   todoDuedateInput.id = "todo-duedate-input"
-   todoDuedateInput.classList.add("todo-duedate-input")
-   todoDuedateInput.name = "duedate"
+   const todoDuedateLabel = document.createElement("label");
+   todoDuedateLabel.setAttribute("for", "todo-duedate-input");
+   todoDuedateLabel.classList.add("todo-duedate-label");
+   todoDuedateLabel.textContent = "Due date";
+
+   const todoDuedateInput = document.createElement("input");
+   todoDuedateInput.type = "date";
+   todoDuedateInput.id = "todo-duedate-input";
+   todoDuedateInput.classList.add("todo-duedate-input", "todo-form-input");
+   todoDuedateInput.name = "duedate";
    todoDuedateInput.required = true;
-   todoDuedateInput.setAttribute("value", format(new Date(), 'MM/dd/yyyy'))
-   todoDuedateInput.setAttribute("min", format(new Date(), 'MM/dd/yyyy'))
+   todoDuedateInput.setAttribute("value", format(new Date(), "yyyy-MM-dd"));
+   todoDuedateInput.setAttribute("min", format(new Date(), "yyyy-MM-dd"));
 
-   input2Container.appendChild(todoDuedateLabel)
-   input2Container.appendChild(todoDuedateInput)
-
+   input2Container.appendChild(todoDuedateLabel);
+   input2Container.appendChild(todoDuedateInput);
 
    const input3Container = document.createElement("div");
    input3Container.classList.add("input-container");
 
-   const todoPriorityLabel = document.createElement("label")
-   todoPriorityLabel.setAttribute("for", "todo-priority-dropdown")
-   todoPriorityLabel.classList.add("todo-priority-label")
+   const todoPriorityLabel = document.createElement("label");
+   todoPriorityLabel.setAttribute("for", "todo-priority-dropdown");
+   todoPriorityLabel.classList.add("todo-priority-label");
    todoPriorityLabel.textContent = "Priority";
 
-   const todoPriorityDropdown = document.createElement("select")
+   const todoPriorityDropdown = document.createElement("select");
    todoPriorityDropdown.required = true;
-   todoPriorityDropdown.id = "todo-priority-dropdown"
-   todoPriorityDropdown.classList.add("todo-priority-dropdown")
-   todoPriorityDropdown.name = "todo-priority"
+   todoPriorityDropdown.id = "todo-priority-dropdown";
+   todoPriorityDropdown.classList.add(
+      "todo-priority-dropdown",
+      "todo-form-input"
+   );
+   todoPriorityDropdown.name = "todo-priority";
 
-   const urgentPriority = document.createElement("option")
-   urgentPriority.value = "urgent"
-   urgentPriority.textContent = "urgent"
-   
-   const normalPriority = document.createElement("option")
-   normalPriority.value = "normal"
-   normalPriority.textContent = "normal"
-   
-   const lowPriority = document.createElement("option")
-   lowPriority.value = "low"
-   lowPriority.textContent = "low"
+   const urgentPriority = document.createElement("option");
+   urgentPriority.value = "urgent";
+   urgentPriority.textContent = "urgent";
 
-   todoPriorityDropdown.appendChild(lowPriority)
-   todoPriorityDropdown.appendChild(normalPriority)
-   todoPriorityDropdown.appendChild(urgentPriority)
+   const normalPriority = document.createElement("option");
+   normalPriority.value = "normal";
+   normalPriority.textContent = "normal";
 
-   input3Container.appendChild(todoPriorityLabel)
-   input3Container.appendChild(todoPriorityDropdown)
+   const lowPriority = document.createElement("option");
+   lowPriority.value = "low";
+   lowPriority.textContent = "low";
 
+   todoPriorityDropdown.appendChild(lowPriority);
+   todoPriorityDropdown.appendChild(normalPriority);
+   todoPriorityDropdown.appendChild(urgentPriority);
+
+   input3Container.appendChild(todoPriorityLabel);
+   input3Container.appendChild(todoPriorityDropdown);
 
    const input4Container = document.createElement("div");
    input4Container.classList.add("input-container");
 
-   const todoDescriptionLabel = document.createElement("label")
-   todoDescriptionLabel.setAttribute("for", "todo-description-input")
-   todoDescriptionLabel.classList.add("todo-description-label")
-   todoDescriptionLabel.textContent = "Description"
+   const todoDescriptionLabel = document.createElement("label");
+   todoDescriptionLabel.setAttribute("for", "todo-description-input");
+   todoDescriptionLabel.classList.add("todo-description-label");
+   todoDescriptionLabel.textContent = "Description";
 
-   const todoDescriptionInput = document.createElement("textarea")
-   todoDescriptionInput.id = "todo-description-input"
-   todoDescriptionInput.classList.add("todo-description-input")
-   todoDescriptionInput.name = "todo-description"
+   const todoDescriptionInput = document.createElement("textarea");
+   todoDescriptionInput.id = "todo-description-input";
+   todoDescriptionInput.classList.add("todo-description-input");
+   todoDescriptionInput.name = "todo-description";
    todoDescriptionInput.required = true;
    todoDescriptionInput.rows = 5;
    todoDescriptionInput.columns = 35;
 
-   input4Container.appendChild(todoDescriptionLabel)
-   input4Container.appendChild(todoDescriptionInput)
+   input4Container.appendChild(todoDescriptionLabel);
+   input4Container.appendChild(todoDescriptionInput);
 
+   allInputsContainer.appendChild(input1Container);
+   allInputsContainer.appendChild(input2Container);
+   allInputsContainer.appendChild(input3Container);
+   allInputsContainer.appendChild(input4Container);
 
-   allInputsContainer.appendChild(input1Container)
-   allInputsContainer.appendChild(input2Container)
-   allInputsContainer.appendChild(input3Container)
-   allInputsContainer.appendChild(input4Container)
+   const createTodoBtn = document.createElement("btn");
+   createTodoBtn.id = "create-todo-btn";
+   createTodoBtn.classList.add("create-todo-btn");
+   createTodoBtn.textContent = "Add";
 
+   form.appendChild(formHeading);
+   form.appendChild(allInputsContainer);
+   form.appendChild(createTodoBtn);
 
-   const createTodoBtn = document.createElement('btn')
-   createTodoBtn.id = "create-todo-btn"
-   createTodoBtn.classList.add("create-todo-btn")
-   createTodoBtn.textContent = "Add"
+   formModal.appendChild(form);
 
-   form.appendChild(formHeading)
-   form.appendChild(allInputsContainer)
-   form.appendChild(createTodoBtn)
-
-   formModal.appendChild(form)
-
-   body.appendChild(formModal)
+   body.appendChild(formModal);
 }
 
 function appendTodoToProject(projectId, todoItem) {
