@@ -1,4 +1,5 @@
 import editIcon from "../../assets/icons/edit-icon.png";
+import trashIcon from "../../assets/icons/trash-icon.png"
 import { format } from "date-fns";
 
 const body = document.querySelector("body");
@@ -38,11 +39,23 @@ function renderTodo(title, description, duedate, priority, todoId) {
 
    editTodoBtn.appendChild(editIconImg);
 
+   const removeTodoBtn = document.createElement("button")
+   removeTodoBtn.id = "remove-todo-btn"
+   removeTodoBtn.classList.add("remove-todo-btn")
+
+   const trashIconImg = new Image()
+   trashIconImg.src = trashIcon
+   trashIconImg.classList.add("remove-todo-icon")
+
+   removeTodoBtn.appendChild(trashIconImg)
+
+
    todoHeadContainer.appendChild(completedCheckMark);
    todoHeadContainer.appendChild(todoTitle);
    todoHeadContainer.appendChild(todoPriority);
    todoHeadContainer.appendChild(todoDuedate);
    todoHeadContainer.appendChild(editTodoBtn);
+   todoHeadContainer.appendChild(removeTodoBtn)
 
    const detailsContainer = document.createElement("div");
    detailsContainer.classList.add("todo-details-container");
