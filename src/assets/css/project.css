@@ -3,6 +3,7 @@
    color: var(--color6);
    display: flex;
    justify-content: center;
+   background-color: var(--color1);
 }
 
 .project {
