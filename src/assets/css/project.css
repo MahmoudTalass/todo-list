@@ -25,6 +25,55 @@
    width: 2rem;
 }
 
+
+
+/* Project title card */
+
+.project-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 2rem;
+}
+
+.project-title {
+   font-size: 1.2rem;
+}
+
+.project-utility-btns {
+   display: flex;
+   gap: 1rem
+}
+
+.edit-title-btn, 
+.remove-project-btn {
+   display: flex;
+   padding: 0;
+   align-items: center;
+   justify-content: center;
+   background-color: transparent;
+   border: 1px solid white;
+   border: none;
+}
+
+.edit-project-icon, .remove-project-icon {
+   width: 1.8rem;
+   height: 1.8rem;
+   filter: brightness(0) invert(1);
+}
+.remove-project-icon {
+   width: 1.6rem;
+   height: 1.6rem;
+}
+
+.edit-title-btn:active, .remove-project-btn:active
+ {
+   transform: scale(1.1);
+}
+
+
+
+
 /* Add project Form */
 
 .add-project-form-modal {
