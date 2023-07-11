@@ -53,5 +53,11 @@ function updateStorage() {
    localStorage.setItem("user", JSON.stringify(user));
 }
 
-export default createUser;
-export { user, addProject, removeProject, editProjectTitle, updateStorage };
+export {
+   createUser,
+   user,
+   addProject,
+   removeProject,
+   editProjectTitle,
+   updateStorage,
+};
