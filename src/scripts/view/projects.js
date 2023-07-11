@@ -17,6 +17,7 @@ function renderProject(projectId) {
 
    const project = document.createElement("div");
    project.classList.add("project");
+   project.id = "project";
    project.setAttribute("data-project-id", projectId);
 
    const addTaskBtn = document.createElement("div");
@@ -141,5 +142,5 @@ export {
    renderProject,
    renderAddProjectForm,
    getProjectTitleInput,
-   clearProjectTitleInput
+   clearProjectTitleInput,
 };
