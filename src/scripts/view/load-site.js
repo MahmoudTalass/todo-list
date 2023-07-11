@@ -25,6 +25,7 @@ function renderPage() {
     
 
     renderAddTodoForm();
+    renderAddProjectForm()
 }
 
 export default renderPage;
