@@ -8,6 +8,7 @@ const User = (name) => {
    let state = {
       name: name,
       id: userIds++,
+      projectIds: 0,
       projects: [],
    };
 
@@ -15,14 +16,20 @@ const User = (name) => {
       username: state.name,
       userId: state.id,
       projects: state.projects,
+      projectIds: state.projectIds
    };
 };
+
+function setUser(myUser) {
+   user = myUser;
+}
 
 function createUser(name) {
    user = User(name);
    let userProjects = user.projects;
    userProjects.push(createProject("default"));
    updateStorage();
+   return user;
 }
 
 function addProject(title) {
@@ -50,7 +57,10 @@ function editProjectTitle(projectId, newTitle) {
 }
 
 function updateStorage() {
+   debugger
    localStorage.setItem("user", JSON.stringify(user));
+   console.log(JSON.parse(localStorage.getItem("user")))
+   console.log(user)
 }
 
 export {
@@ -60,4 +70,5 @@ export {
    removeProject,
    editProjectTitle,
    updateStorage,
+   setUser
 };
