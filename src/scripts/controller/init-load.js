@@ -2,7 +2,14 @@ import loadLocalStorage from "./load-localStorage";
 import { createUser } from "../model/user";
 
 function initialLoad() {
-   createUser("mahmoud");
+   let s = localStorage.getItem("user");
+   if (localStorage.getItem("user") !== null) {
+      loadLocalStorage()
+   } else {
+      createUser("user #1");
+   }
+   
+   
 }
 
 
