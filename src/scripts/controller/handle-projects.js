@@ -6,18 +6,17 @@ import {
 } from "../view/projects";
 import { addProject, user } from "../model/user";
 
+const projectTitleContainers =
+   document.getElementsByClassName("project-container");
+
 function handleProjects() {
+   // Display add project form
    const addProjectBtn = document.querySelector("#add-project-btn");
    const addProjectForm = document.querySelector("#add-project-form");
    const addProjectFormModal = document.querySelector(
       "#add-project-form-modal"
    );
-   const projectTitleContainers =
-      document.getElementsByClassName("project-container");
 
-   const projectsContainer = document.querySelector("#projects-container");
-
-   // Display add project form
    addProjectBtn.addEventListener("click", () => {
       addProjectFormModal.style.display = "block";
    });
@@ -37,25 +36,42 @@ function handleProjects() {
       e.preventDefault();
       const projectTitle = getProjectTitleInput();
       addProject(projectTitle);
-
-      let lastAddedProjectId = user.projects[user.projects.length - 1].id;
-      renderProjectTitle(projectTitle, lastAddedProjectId);
-      clearProjectTitleInput();
+      addProjectToPage();
       addProjectFormModal.style.display = "none";
-      addEvntListnrsToProj(lastAddedProjectId);
    });
+}
 
-   function addEvntListnrsToProj(lastAddedProjectId) {
-      let lastAddedTitle = projectTitleContainers[lastAddedProjectId];
-      lastAddedTitle.addEventListener("click", () => {
-         let projectId = lastAddedTitle.getAttribute("data-project-title-id");
-         if (projectsContainer.children.length > 0) {
-            projectsContainer.remove(projectsContainer.firstChild);
-         }
-         renderProject(projectId);
-         console.log(projectId);
-      });
+function addEvntListnrsToProj(recentProjectId) {
+   let recentTitle = projectTitleContainers[recentProjectId];
+   recentTitle.addEventListener("click", (e) => {
+      tabIntoProject(e);
+   });
+}
+
+function tabIntoProject(e) {
+   const projectTabBtn = document.querySelector("button.project-tab-btn")
+   if (e.target === projectTabBtn) {
+      const projectsContainer = document.querySelector("#projects-container");
+      const targetProject = e.target;
+      let targetProjectId = targetProject.getAttribute("data-project-title-id");
+
+      if (projectsContainer.children.length > 0) {
+          const currentProject = projectsContainer.firstChild;
+          const currentProjectId = currentProject.getAttribute(
+             "data-project-id"
+          );
+          if (currentProjectId === targetProjectId) return;
+         projectsContainer.removeChild();
+      }
+      renderProject(targetProjectId);
    }
 }
 
-export default handleProjects;
+function addProjectToPage(projectTitle) {
+   let recentProjectId = user.projects[user.projects.length - 1].id;
+   renderProjectTitle(projectTitle, recentProjectId);
+   clearProjectTitleInput();
+   addEvntListnrsToProj(recentProjectId);
+}
+
+export { handleProjects, addProjectToPage };
