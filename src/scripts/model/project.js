@@ -2,7 +2,6 @@ import { createTodoItem } from "./todo";
 import { user, updateStorage } from "./user";
 
 const Project = (title) => {
-   debugger
    let state = {
       todosIds: 0,
       todos: [],
