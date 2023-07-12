@@ -1,14 +1,14 @@
 import { addProjectToPage } from "./handle-projects";
-import { createUser } from "../model/user";
+import { createUser, setUser } from "../model/user";
 
 function loadLocalStorage() {
     let user = JSON.parse(localStorage.getItem("user"))
-    createUser(user.username)
+    setUser(user)
 
     let userProjects = user.projects;
 
-    userProjects.forEach(project => {
-        addProjectToPage(project.title)
+    userProjects.forEach((project) => {
+        addProjectToPage(project.title, project.id)
     })
 }
 
