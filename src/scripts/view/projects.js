@@ -48,10 +48,9 @@ function renderProjectTitle(title, projectId) {
    projectContainer.classList.add("project-container");
    projectContainer.setAttribute("data-project-title-id", projectId);
 
-   const projectTitle = document.createElement("p");
-   projectTitle.classList.add("project-title");
-
-   projectTitle.textContent = title;
+   const projectTabBtn = document.createElement("button");
+   projectTabBtn.classList.add("project-tab-btn");
+   projectTabBtn.textContent = title;
 
    const projectUtilityBtns = document.createElement("div");
    projectUtilityBtns.classList.add("project-utility-btns");
@@ -79,7 +78,7 @@ function renderProjectTitle(title, projectId) {
    projectUtilityBtns.appendChild(editTitleBtn);
    projectUtilityBtns.appendChild(removeProjectBtn);
 
-   projectContainer.appendChild(projectTitle);
+   projectContainer.appendChild(projectTabBtn);
    projectContainer.appendChild(projectUtilityBtns);
 
    sidebarProjectsCont.appendChild(projectContainer);

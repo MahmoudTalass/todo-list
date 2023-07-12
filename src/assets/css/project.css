@@ -37,11 +37,14 @@
    align-items: center;
    justify-content: space-between;
    gap: 2rem;
-   cursor: pointer;
 }
 
-.project-title {
-   font-size: 1.2rem;
+.project-tab-btn {
+   font-size: 1.4rem;
+   background-color: inherit;
+   border: none;
+   color: inherit;
+   cursor: pointer;
 }
 
 .project-utility-btns {
