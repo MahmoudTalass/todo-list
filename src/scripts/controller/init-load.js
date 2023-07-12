@@ -1,5 +1,6 @@
 import loadLocalStorage from "./load-localStorage";
-import { createUser } from "../model/user";
+import { createUser, user } from "../model/user";
+import { addProjectToPage } from "./handle-projects";
 
 function initialLoad() {
    let s = localStorage.getItem("user");
@@ -7,6 +8,7 @@ function initialLoad() {
       loadLocalStorage()
    } else {
       createUser("user #1");
+      addProjectToPage(user.projects[0].title, user.projects[0].id)
    }
    
    
