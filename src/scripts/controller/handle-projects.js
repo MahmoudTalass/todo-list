@@ -50,10 +50,12 @@ function addEvntListnrsToProj(recentProjectId) {
 }
 
 function tabIntoProject(e) {
-   const projectTabBtn = document.querySelector("button.project-tab-btn");
-   if (e.target === projectTabBtn) {
+   const containsProjectBtnClass = e.target.classList.contains("project-tab-btn");
+   
+   if (containsProjectBtnClass) {
       const projectsContainer = document.querySelector("#projects-container");
-      const targetProject = e.target;
+
+      const targetProject = e.target.parentElement;
       let targetProjectId = targetProject.getAttribute("data-project-title-id");
 
       if (projectsContainer.children.length > 0) {
@@ -68,7 +70,6 @@ function tabIntoProject(e) {
 }
 
 function addProjectToPage(projectTitle, projectId) {
-   // let recentProjectId = user.projects[user.projects.length - 1].id;
    renderProjectTitle(projectTitle, projectId);
    clearProjectTitleInput();
    addEvntListnrsToProj(projectId);
