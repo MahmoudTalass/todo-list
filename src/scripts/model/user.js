@@ -57,7 +57,6 @@ function editProjectTitle(projectId, newTitle) {
 }
 
 function updateStorage() {
-   debugger
    localStorage.setItem("user", JSON.stringify(user));
    console.log(JSON.parse(localStorage.getItem("user")))
    console.log(user)
