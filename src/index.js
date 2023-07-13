@@ -8,8 +8,10 @@ import projectStyle from "./assets/css/project.css";
 import todoStyle from "./assets/css/todo.css";
 
 import initialLoad from "./scripts/controller/init-load";
-import { handleProjects } from "./scripts/controller/handle-projects";
+import { handleProjectsInput } from "./scripts/controller/handle-projects";
+import { handleTodosInput } from "./scripts/controller/handle-todos";
 
 renderPage();
 initialLoad();
-handleProjects();
+handleProjectsInput();
+// handleTodosInput()
