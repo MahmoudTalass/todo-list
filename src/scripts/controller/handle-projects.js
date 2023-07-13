@@ -50,6 +50,7 @@ function handleProjectsInput() {
  */
 function addEvntListnrsToProj(recentProjectId) {
    let recentTitle = projectTitleContainers[recentProjectId];
+
    recentTitle.addEventListener("click", (e) => {
       tabIntoProject(e);
    });
