@@ -78,6 +78,7 @@ function renderAddTodoForm() {
    const formHeading = document.createElement("p");
 
    formModal.classList.add("form-modal", "add-todo-form-modal");
+   formModal.id = "add-todo-form-modal";
    
    form.classList.add("add-todo-form");
    form.id = "add-todo-form";
