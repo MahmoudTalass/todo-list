@@ -5,11 +5,12 @@ import {
    renderProjectTitle,
 } from "../view/projects";
 import { addProject, user } from "../model/user";
+import { handleTodosInput } from "./handle-todos";
 
 const projectTitleContainers =
    document.getElementsByClassName("project-container");
 
-function handleProjects() {
+function handleProjectsInput() {
    // Display add project form
    const addProjectBtn = document.querySelector("#add-project-btn");
    const addProjectForm = document.querySelector("#add-project-form");
@@ -76,6 +77,7 @@ function tabIntoProject(e) {
          projectsContainer.removeChild(currentProject);
       }
       renderProject(targetProjectId);
+      handleTodosInput();
    }
 }
 
@@ -84,4 +86,4 @@ function addProjectToPage(projectTitle, projectId) {
    addEvntListnrsToProj(projectId);
 }
 
-export { handleProjects, addProjectToPage };
+export { handleProjectsInput, addProjectToPage };
