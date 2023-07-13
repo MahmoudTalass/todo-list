@@ -38,10 +38,15 @@ function handleProjects() {
       addProject(projectTitle);
       const recentProjectId = user.projects[user.projects.length - 1].id;
       addProjectToPage(projectTitle, recentProjectId);
+      clearProjectTitleInput();
       addProjectFormModal.style.display = "none";
    });
 }
 
+/*
+ *  Add event lister to last added project title and
+ *  give it tabbing ability
+ */
 function addEvntListnrsToProj(recentProjectId) {
    let recentTitle = projectTitleContainers[recentProjectId];
    recentTitle.addEventListener("click", (e) => {
@@ -49,9 +54,14 @@ function addEvntListnrsToProj(recentProjectId) {
    });
 }
 
+/*
+ *  Gives tabbing ability to projects so whenever you hit on a project
+ *  you are able to see its information like its todo items
+ */
 function tabIntoProject(e) {
-   const containsProjectBtnClass = e.target.classList.contains("project-tab-btn");
-   
+   const containsProjectBtnClass =
+      e.target.classList.contains("project-tab-btn");
+
    if (containsProjectBtnClass) {
       const projectsContainer = document.querySelector("#projects-container");
 
@@ -71,7 +81,6 @@ function tabIntoProject(e) {
 
 function addProjectToPage(projectTitle, projectId) {
    renderProjectTitle(projectTitle, projectId);
-   clearProjectTitleInput();
    addEvntListnrsToProj(projectId);
 }
 
