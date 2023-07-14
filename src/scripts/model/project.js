@@ -3,7 +3,7 @@ import { user, updateStorage } from "./user";
 
 const Project = (title) => {
    let state = {
-      todosIds: 0,
+      todoIds: 0,
       todos: [],
       id: user.projectIds++,
       title: title,
@@ -13,7 +13,7 @@ const Project = (title) => {
       todosList: state.todos,
       title: state.title,
       id: state.id,
-      todoIds: state.todosIds,
+      todoIds: state.todoIds,
    };
 };
 
@@ -29,7 +29,10 @@ function addTodoToProject(title, desc, duedate, priority, projectId) {
       createTodoItem(title, desc, duedate, priority, projectTodosIds, projectId)
    );
       updateStorage();
+}
 
+function getRecentTodo(projectId) {
+   return user.projects[projectId].todoIds;
 }
 
 function removeTodo(projectId, todoId) {
@@ -66,4 +69,4 @@ function markAsComplete(projectId, todoId) {
 
 }
 
-export { createProject, addTodoToProject, removeTodo };
+export { createProject, addTodoToProject, removeTodo, getRecentTodo };
