@@ -206,4 +206,28 @@ function appendTodoToProject(projectId, todoItem) {
    project.appendChild(todoItem);
 }
 
+function getTodoTitleInput() {
+   const todoTitleInput = document.querySelector("#todo-title-input");
+
+   return todoTitleInput.value;
+}
+
+function getTodoDuedateInput() {
+   const todoDuedateInput = document.querySelector("#todo-duedate-input");
+
+   return todoDuedateInput.value;
+}
+
+function getTodoPriorityInput() {
+   const todoPriorityInput = document.querySelector("#todo-priority-dropdown")
+
+   return todoPriorityInput.value;
+}
+
+function getTodoDescInput() {
+   const todoDescInput = document.querySelector("#todo-description-input")
+
+   return todoDescInput.value;
+}
+
 export { renderTodo, appendTodoToProject, renderAddTodoForm };
