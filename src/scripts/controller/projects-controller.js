@@ -36,11 +36,8 @@ function tabIntoProject(e) {
          if (currentProjectId === targetProjectId) return;
          projectsContainer.removeChild(currentProject);
       }
-      debugger
+
       renderProject(targetProjectId);
-      debugger
-      handleTodosInput(targetProjectId);
-      debugger
       loadAllTodosInProject(targetProjectId);
    }
 }
