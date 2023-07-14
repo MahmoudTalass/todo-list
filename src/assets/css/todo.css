@@ -100,4 +100,6 @@
    width: clamp(5rem, 50%, 10rem);
    height: 2rem;
    border-radius: 0.3rem;
+   border: none;
+   color: inherit
 }
