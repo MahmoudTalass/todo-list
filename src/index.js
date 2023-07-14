@@ -9,9 +9,9 @@ import todoStyle from "./assets/css/todo.css";
 
 import initialLoad from "./scripts/controller/init-load";
 import { handleProjectsInput } from "./scripts/view/project-events";
-import { handleTodosInput } from "./scripts/controller/todos-controller";
+import { handleTodosInput } from "./scripts/view/todo-events";
 
 renderPage();
 initialLoad();
 handleProjectsInput();
-// handleTodosInput()
+handleTodosInput()
