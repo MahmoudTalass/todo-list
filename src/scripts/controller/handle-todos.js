@@ -1,4 +1,5 @@
 import { addTodoToProject, getRecentTodo } from "../model/project";
+import { getProject } from "../model/user";
 import {
    appendTodoToProject,
    getTodoDescInput,
@@ -8,43 +9,60 @@ import {
    renderTodo,
 } from "../view/todos";
 
-import { user } from "../model/user";
-
 function addTodoUsingForm(projectId) {
+   const id = document
+      .querySelector("#project")
+      .getAttribute("data-project-id");
    const todoTitle = getTodoTitleInput();
    const todoDuedate = getTodoDuedateInput();
    const todoPriority = getTodoPriorityInput();
    const todoDesc = getTodoDescInput();
    debugger;
-   const recentTodoId = getRecentTodo(projectId);
+   const recentTodoId = getRecentTodo(id);
 
-   addTodoToProject(todoTitle, todoDuedate, todoPriority, todoDesc, projectId);
+   addTodoToProject(todoTitle, todoDesc, todoDuedate, todoPriority, id);
    addTodoToPage(
       todoTitle,
+      todoDesc,
       todoDuedate,
       todoPriority,
-      todoDesc,
       recentTodoId,
-      projectId
+      id
    );
 }
 
 function addTodoToPage(
    todoTitle,
+   todoDesc,
    todoDuedate,
    todoPriority,
-   todoDesc,
    todoId,
    projectId
 ) {
    const todo = renderTodo(
       todoTitle,
+      todoDesc,
       todoDuedate,
       todoPriority,
-      todoDesc,
       todoId
    );
    appendTodoToProject(todo);
 }
 
-export { addTodoToPage, addTodoUsingForm };
+function loadAllTodosInProject(projectId) {
+   debugger;
+   const projectTodos = getProject(projectId).todosList;
+
+   projectTodos.forEach((todo) => {
+      const title = todo.title;
+      const desc = todo.description;
+      const duedate = todo.duedate;
+      const priority = todo.priority;
+      const id = todo.id;
+      const existsInProject = todo.existsInProject;
+
+      addTodoToPage(title, desc, duedate, priority, id, existsInProject);
+   });
+}
+
+export { addTodoToPage, addTodoUsingForm, loadAllTodosInProject };
