@@ -1,16 +1,17 @@
 import { addTodoUsingForm } from "../controller/todos-controller";
 import { clearAddTodoInputs } from "./todos";
 
-function handleTodosInput(targetProjectId) {
-   const project = document.querySelector("[data-project-id");
+
+
+function handleTodosInput() {
+   const projectsContainer = document.querySelector("#projects-container");
+
    const addTodoBtn = document.querySelector("#add-task-btn");
    const addTodoFormModal = document.querySelector("#add-todo-form-modal");
    const addTodoForm = document.querySelector("#add-todo-form");
 
-   // Get the project id by checking the data attribute of the
-   // project currently clicked on
-
-   addTodoBtn.addEventListener("click", () => {
+   projectsContainer.addEventListener("click", (e) => {
+    if(e.target.classList.contains("add-task-btn"))
       addTodoFormModal.style.display = "block";
    });
 
@@ -23,8 +24,7 @@ function handleTodosInput(targetProjectId) {
 
    addTodoForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      let id = targetProjectId;
-      addTodoUsingForm(targetProjectId);
+      addTodoUsingForm();
       clearAddTodoInputs();
       addTodoFormModal.style.display = "none";
    });
