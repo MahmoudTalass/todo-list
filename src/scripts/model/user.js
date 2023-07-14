@@ -38,6 +38,10 @@ function addProject(title) {
    updateStorage();
 }
 
+function getProject(projectId) {
+   return user.projects[projectId];
+}
+
 function removeProject(projectId) {
    if (projectId === 0) return;
 
@@ -69,5 +73,6 @@ export {
    removeProject,
    editProjectTitle,
    updateStorage,
-   setUser
+   setUser,
+   getProject
 };
