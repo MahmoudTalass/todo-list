@@ -1,4 +1,4 @@
-import { addTodoUsingForm } from "../controller/handle-todos";
+import { addTodoUsingForm } from "../controller/todos-controller";
 import { clearAddTodoInputs } from "./todos";
 
 function handleTodosInput(targetProjectId) {
@@ -23,11 +23,9 @@ function handleTodosInput(targetProjectId) {
 
    addTodoForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      debugger;
-      let id = targetProjectId
+      let id = targetProjectId;
       addTodoUsingForm(targetProjectId);
       clearAddTodoInputs();
-      debugger
       addTodoFormModal.style.display = "none";
    });
 }

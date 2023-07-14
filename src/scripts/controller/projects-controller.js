@@ -6,7 +6,7 @@ import {
 import { addProject, user } from "../model/user";
 import { addEvntListnrsToProj } from "../view/project-events";
 import { handleTodosInput } from "../view/todo-events";
-import { addTodoToPage, loadAllTodosInProject } from "./handle-todos";
+import { addTodoToPage, loadAllTodosInProject } from "./todos-controller";
 
 function addProjectUsingForm() {
    const projectTitle = getProjectTitleInput();
@@ -36,10 +36,12 @@ function tabIntoProject(e) {
          if (currentProjectId === targetProjectId) return;
          projectsContainer.removeChild(currentProject);
       }
+      debugger
       renderProject(targetProjectId);
       debugger
       handleTodosInput(targetProjectId);
-      loadAllTodosInProject(targetProjectId)
+      debugger
+      loadAllTodosInProject(targetProjectId);
    }
 }
 

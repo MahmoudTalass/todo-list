@@ -1,12 +1,11 @@
 import {
    tabIntoProject,
    addProjectUsingForm,
-} from "../controller/handle-projects";
+} from "../controller/projects-controller";
 import { clearProjectTitleInput } from "./projects";
 
 const projectTitleContainers =
    document.getElementsByClassName("project-container");
-
 
 // Display add project form
 function handleProjectsInput() {
@@ -25,7 +24,7 @@ function handleProjectsInput() {
    window.addEventListener("click", (e) => {
       if (e.target === addProjectFormModal) {
          addProjectFormModal.style.display = "none";
-         clearProjectTitleInput()
+         clearProjectTitleInput();
       }
    });
 

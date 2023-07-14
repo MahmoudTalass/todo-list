@@ -17,7 +17,7 @@ function addTodoUsingForm(projectId) {
    const todoDuedate = getTodoDuedateInput();
    const todoPriority = getTodoPriorityInput();
    const todoDesc = getTodoDescInput();
-   debugger;
+
    const recentTodoId = getRecentTodo(id);
 
    addTodoToProject(todoTitle, todoDesc, todoDuedate, todoPriority, id);
@@ -50,8 +50,9 @@ function addTodoToPage(
 }
 
 function loadAllTodosInProject(projectId) {
-   debugger;
    const projectTodos = getProject(projectId).todosList;
+   
+   if (projectTodos.length === 0) return;
 
    projectTodos.forEach((todo) => {
       const title = todo.title;
