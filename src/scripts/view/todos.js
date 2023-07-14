@@ -4,7 +4,7 @@ import { format } from "date-fns";
 
 const body = document.querySelector("body");
 
-function renderTodo(title, duedate, priority, description, todoId) {
+function renderTodo(title, description, duedate, priority, todoId) {
    const todoContainer = document.createElement("div");
    todoContainer.classList.add("todo-container");
    todoContainer.setAttribute("data-todo-id", todoId);
@@ -206,27 +206,27 @@ function appendTodoToProject(todoItem) {
 }
 
 function getTodoTitleInput() {
-   const todoTitleInput = document.querySelector("#todo-title-input");
+   const todoTitleInput = document.querySelector("#todo-title-input").value;
 
-   return todoTitleInput.value;
+   return todoTitleInput;
 }
 
 function getTodoDuedateInput() {
-   const todoDuedateInput = document.querySelector("#todo-duedate-input");
+   const todoDuedateInput = document.querySelector("#todo-duedate-input").value;
 
-   return todoDuedateInput.value;
+   return todoDuedateInput;
 }
 
 function getTodoPriorityInput() {
-   const todoPriorityInput = document.querySelector("#todo-priority-dropdown");
+   const todoPriorityInput = document.querySelector("#todo-priority-dropdown").value;
 
-   return todoPriorityInput.value;
+   return todoPriorityInput;
 }
 
 function getTodoDescInput() {
-   const todoDescInput = document.querySelector("#todo-description-input");
+   const todoDescInput = document.querySelector("#todo-description-input").value;
 
-   return todoDescInput.value;
+   return todoDescInput;
 }
 
 function clearAddTodoInputs() {
