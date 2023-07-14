@@ -25,6 +25,7 @@ function handleProjectsInput() {
    window.addEventListener("click", (e) => {
       if (e.target === addProjectFormModal) {
          addProjectFormModal.style.display = "none";
+         clearProjectTitleInput()
       }
    });
 
