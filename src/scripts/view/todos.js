@@ -4,7 +4,7 @@ import { format } from "date-fns";
 
 const body = document.querySelector("body");
 
-function renderTodo(title, description, duedate, priority, todoId) {
+function renderTodo(title, duedate, priority, description, todoId) {
    const todoContainer = document.createElement("div");
    todoContainer.classList.add("todo-container");
    todoContainer.setAttribute("data-todo-id", todoId);
@@ -200,8 +200,8 @@ function renderAddTodoForm() {
    body.appendChild(formModal);
 }
 
-function appendTodoToProject(projectId, todoItem) {
-   const project = document.querySelector(`[data-project-id="${projectId}"]`);
+function appendTodoToProject(todoItem) {
+   const project = document.querySelector("#project");
    project.appendChild(todoItem);
 }
 
