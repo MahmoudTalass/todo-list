@@ -1,5 +1,5 @@
 import editIcon from "../../assets/icons/edit-icon.png";
-import trashIcon from "../../assets/icons/trash-icon.png"
+import trashIcon from "../../assets/icons/trash-icon.png";
 import { format } from "date-fns";
 
 const body = document.querySelector("body");
@@ -39,23 +39,22 @@ function renderTodo(title, description, duedate, priority, todoId) {
 
    editTodoBtn.appendChild(editIconImg);
 
-   const removeTodoBtn = document.createElement("button")
-   removeTodoBtn.id = "remove-todo-btn"
-   removeTodoBtn.classList.add("remove-todo-btn")
+   const removeTodoBtn = document.createElement("button");
+   removeTodoBtn.id = "remove-todo-btn";
+   removeTodoBtn.classList.add("remove-todo-btn");
 
-   const trashIconImg = new Image()
-   trashIconImg.src = trashIcon
-   trashIconImg.classList.add("remove-todo-icon")
+   const trashIconImg = new Image();
+   trashIconImg.src = trashIcon;
+   trashIconImg.classList.add("remove-todo-icon");
 
-   removeTodoBtn.appendChild(trashIconImg)
-
+   removeTodoBtn.appendChild(trashIconImg);
 
    todoHeadContainer.appendChild(completedCheckMark);
    todoHeadContainer.appendChild(todoTitle);
    todoHeadContainer.appendChild(todoPriority);
    todoHeadContainer.appendChild(todoDuedate);
    todoHeadContainer.appendChild(editTodoBtn);
-   todoHeadContainer.appendChild(removeTodoBtn)
+   todoHeadContainer.appendChild(removeTodoBtn);
 
    const detailsContainer = document.createElement("div");
    detailsContainer.classList.add("todo-details-container");
@@ -79,7 +78,7 @@ function renderAddTodoForm() {
 
    formModal.classList.add("form-modal", "add-todo-form-modal");
    formModal.id = "add-todo-form-modal";
-   
+
    form.classList.add("add-todo-form");
    form.id = "add-todo-form";
 
@@ -187,7 +186,7 @@ function renderAddTodoForm() {
    allInputsContainer.appendChild(input3Container);
    allInputsContainer.appendChild(input4Container);
 
-   const createTodoBtn = document.createElement("btn");
+   const createTodoBtn = document.createElement("button");
    createTodoBtn.id = "create-todo-btn";
    createTodoBtn.classList.add("create-todo-btn");
    createTodoBtn.textContent = "Add";
@@ -219,15 +218,36 @@ function getTodoDuedateInput() {
 }
 
 function getTodoPriorityInput() {
-   const todoPriorityInput = document.querySelector("#todo-priority-dropdown")
+   const todoPriorityInput = document.querySelector("#todo-priority-dropdown");
 
    return todoPriorityInput.value;
 }
 
 function getTodoDescInput() {
-   const todoDescInput = document.querySelector("#todo-description-input")
+   const todoDescInput = document.querySelector("#todo-description-input");
 
    return todoDescInput.value;
 }
 
-export { renderTodo, appendTodoToProject, renderAddTodoForm };
+function clearAddTodoInputs() {
+   const todoTitleInput = document.querySelector("#todo-title-input");
+   const todoDuedateInput = document.querySelector("#todo-duedate-input");
+   const todoPriorityInput = document.querySelector("#todo-priority-dropdown");
+   const todoDescInput = document.querySelector("#todo-description-input");
+
+   todoTitleInput.value = "";
+   todoDuedateInput.value = format(new Date(), "yyyy-MM-dd");
+   todoPriorityInput.value = "low";
+   todoDescInput.value = "";
+}
+
+export {
+   renderTodo,
+   appendTodoToProject,
+   renderAddTodoForm,
+   getTodoDescInput,
+   getTodoDuedateInput,
+   getTodoPriorityInput,
+   getTodoTitleInput,
+   clearAddTodoInputs,
+};
