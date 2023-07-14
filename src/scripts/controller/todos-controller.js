@@ -9,7 +9,7 @@ import {
    renderTodo,
 } from "../view/todos";
 
-function addTodoUsingForm(projectId) {
+function addTodoUsingForm() {
    const id = document
       .querySelector("#project")
       .getAttribute("data-project-id");
@@ -52,8 +52,6 @@ function addTodoToPage(
 function loadAllTodosInProject(projectId) {
    const projectTodos = getProject(projectId).todosList;
    
-   if (projectTodos.length === 0) return;
-
    projectTodos.forEach((todo) => {
       const title = todo.title;
       const desc = todo.description;
