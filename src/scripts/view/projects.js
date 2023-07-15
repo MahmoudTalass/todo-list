@@ -85,16 +85,25 @@ function renderProjectTitle(title, projectId) {
 }
 
 function renderAddProjectForm() {
+   projectForm("add")
+}
+
+function editProjectTitleForm() {
+   projectForm("edit")
+}
+
+function projectForm(formType) {
+   debugger
    const formModal = document.createElement("div");
    const form = document.createElement("form");
 
-   formModal.classList.add("form-modal", "add-project-form-modal");
-   formModal.id = "add-project-form-modal";
-   form.classList.add("add-project-form");
-   form.id = "add-project-form";
+   formModal.classList.add("project-form-modal", "form-modal");
+   formModal.id = `${formType}-project-form-modal`;
+   form.classList.add("project-form");
+   form.id = `${formType}-project-form`
 
    const inputContainer = document.createElement("div");
-   inputContainer.classList.add("add-project-input-container");
+   inputContainer.classList.add("project-input-container");
 
    const projectTitleInputLabel = document.createElement("label");
    projectTitleInputLabel.setAttribute("for", "project-title-input");
@@ -112,9 +121,9 @@ function renderAddProjectForm() {
    inputContainer.appendChild(projectTitleInput);
 
    const createProjectBtn = document.createElement("button");
-   createProjectBtn.id = "create-project-btn";
-   createProjectBtn.classList.add("create-project-btn");
-   createProjectBtn.textContent = "Add";
+   createProjectBtn.id = "project-form-btn";
+   createProjectBtn.classList.add("project-form-btn");
+   createProjectBtn.textContent = `${formType.charAt(0).toUpperCase() + formType.substring(1)}`;
 
    form.appendChild(inputContainer);
    form.appendChild(createProjectBtn);
@@ -142,4 +151,5 @@ export {
    renderAddProjectForm,
    getProjectTitleInput,
    clearProjectTitleInput,
+   editProjectTitleForm
 };
