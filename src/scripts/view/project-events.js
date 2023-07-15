@@ -4,6 +4,7 @@ import {
    deleteProject,
    displayFirstProject,
 } from "../controller/projects-controller";
+import { editProjectTitle } from "../model/user";
 import { clearProjectTitleInput } from "./projects";
 
 // Display add project form
@@ -12,6 +13,9 @@ function handleProjectsInput() {
    const addProjectForm = document.querySelector("#add-project-form");
    const addProjectFormModal = document.querySelector(
       "#add-project-form-modal"
+   );
+   const editProjectFormModal = document.querySelector(
+      "#edit-project-form-modal"
    );
    const projectTitlesContainer = document.querySelector(
       "#projects-titles-container"
@@ -26,6 +30,11 @@ function handleProjectsInput() {
    window.addEventListener("click", (e) => {
       if (e.target === addProjectFormModal) {
          addProjectFormModal.style.display = "none";
+         clearProjectTitleInput();
+      }
+
+      if (e.target === editProjectFormModal) {
+         editProjectFormModal.style.display = "none";
          clearProjectTitleInput();
       }
    });
@@ -45,7 +54,7 @@ function handleProjectsInput() {
    projectTitlesContainer.addEventListener("click", (e) => {
       const isProjectTabBtn = e.target.classList.contains("project-tab-btn");
       const isDeleteBtn = e.target.classList.contains("remove-project-icon");
-      const isEditBtn = e.target.classList.contains('edit-project-icon')
+      const isEditBtn = e.target.classList.contains("edit-project-icon");
 
       if (isProjectTabBtn) {
          tabIntoProject(e);
@@ -56,7 +65,8 @@ function handleProjectsInput() {
       }
 
       if (isEditBtn) {
-         
+         editProjectFormModal.style.display = "block"
+         // editProjectTitle(e);
       }
    });
 
