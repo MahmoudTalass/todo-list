@@ -57,7 +57,7 @@ function handleProjectsInput() {
    })
 
    addEventListener("load", () => {
-      displayFirstProject();
+      if (projectTitlesContainer.children.length > 0) displayFirstProject();
    })
 }
 
