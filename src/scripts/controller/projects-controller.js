@@ -6,7 +6,7 @@ import {
 import { addProject, removeProject, user } from "../model/user";
 import { addEvntListnrsToProj } from "../view/project-events";
 import { handleTodosInput } from "../view/todo-events";
-import { addTodoToPage, loadAllTodosInProject } from "./todos-controller";
+import { addTodoToPage, loadAllTodosInFirstProj, loadAllTodosInProject } from "./todos-controller";
 
 
 function addProjectUsingForm() {
@@ -38,6 +38,11 @@ function tabIntoProject(e) {
       loadAllTodosInProject(targetProjectId);
 }
 
+function displayFirstProject() {
+   renderProject(0);
+   loadAllTodosInFirstProj();
+}
+
 // Renders the project title to the page and adds event to it
 function addProjectToPage(projectTitle, projectId) {
    renderProjectTitle(projectTitle, projectId);
@@ -64,4 +69,4 @@ function deleteProject(e) {
    }
 }
 
-export { addProjectToPage, tabIntoProject, addProjectUsingForm, deleteProject };
+export { addProjectToPage, tabIntoProject, addProjectUsingForm, deleteProject, displayFirstProject };
