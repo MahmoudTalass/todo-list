@@ -28,11 +28,11 @@ function addTodoToProject(title, desc, duedate, priority, projectId) {
    selectedProject.todosList.push(
       createTodoItem(title, desc, duedate, priority, projectTodosIds, projectId)
    );
-      updateStorage();
+   updateStorage();
 }
 
 function getRecentTodo(projectId) {
-   const project = getProjectById(projectId)
+   const project = getProjectById(projectId);
    return project.todoIds;
 }
 
@@ -40,8 +40,7 @@ function removeTodo(projectId, todoId) {
    let projContainingTodo = getProjectById(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.splice(todoIndex, 1);
-      updateStorage();
-
+   updateStorage();
 }
 
 function editTodoTitle(projectId, todoId, newTitle) {
@@ -49,16 +48,14 @@ function editTodoTitle(projectId, todoId, newTitle) {
 
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].title = newTitle;
-      updateStorage();
-
+   updateStorage();
 }
 
 function editTodoDesc(projectId, todoId, newDesc) {
    let projContainingTodo = getProjectById(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].description = newDesc;
-      updateStorage();
-
+   updateStorage();
 }
 
 function markAsComplete(projectId, todoId) {
@@ -68,7 +65,6 @@ function markAsComplete(projectId, todoId) {
    projContainingTodo.todosList[todoIndex].isComplete = true;
    removeTodo(projectId, todoId);
    updateStorage();
-
 }
 
 export { createProject, addTodoToProject, removeTodo, getRecentTodo };

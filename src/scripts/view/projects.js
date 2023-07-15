@@ -141,5 +141,5 @@ export {
    renderProject,
    renderAddProjectForm,
    getProjectTitleInput,
-   clearProjectTitleInput
+   clearProjectTitleInput,
 };

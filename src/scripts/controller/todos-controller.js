@@ -51,12 +51,12 @@ function addTodoToPage(
 
 function loadAllTodosInProject(projectId) {
    const projectTodos = getProjectById(projectId).todosList;
-   addAllTodos(projectTodos)
+   addAllTodos(projectTodos);
 }
 
 function loadAllTodosInFirstProj() {
    const firstProjectInArr = getProjectByIndex(0).todosList;
-   addAllTodos(firstProjectInArr)
+   addAllTodos(firstProjectInArr);
 }
 
 function addAllTodos(project) {
@@ -72,4 +72,9 @@ function addAllTodos(project) {
    });
 }
 
-export { addTodoToPage, addTodoUsingForm, loadAllTodosInProject, loadAllTodosInFirstProj };
+export {
+   addTodoToPage,
+   addTodoUsingForm,
+   loadAllTodosInProject,
+   loadAllTodosInFirstProj,
+};

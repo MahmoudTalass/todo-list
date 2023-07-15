@@ -218,13 +218,17 @@ function getTodoDuedateInput() {
 }
 
 function getTodoPriorityInput() {
-   const todoPriorityInput = document.querySelector("#todo-priority-dropdown").value;
+   const todoPriorityInput = document.querySelector(
+      "#todo-priority-dropdown"
+   ).value;
 
    return todoPriorityInput;
 }
 
 function getTodoDescInput() {
-   const todoDescInput = document.querySelector("#todo-description-input").value;
+   const todoDescInput = document.querySelector(
+      "#todo-description-input"
+   ).value;
 
    return todoDescInput;
 }
@@ -241,8 +245,6 @@ function clearAddTodoInputs() {
    todoDescInput.value = "";
 }
 
-
-
 export {
    renderTodo,
    appendTodoToProject,
@@ -251,5 +253,5 @@ export {
    getTodoDuedateInput,
    getTodoPriorityInput,
    getTodoTitleInput,
-   clearAddTodoInputs
+   clearAddTodoInputs,
 };

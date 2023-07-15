@@ -3,11 +3,19 @@ import {
    renderProject,
    renderProjectTitle,
 } from "../view/projects";
-import { addProject, getProjectByIndex, removeProject, user } from "../model/user";
+import {
+   addProject,
+   getProjectByIndex,
+   removeProject,
+   user,
+} from "../model/user";
 import { addEvntListnrsToProj } from "../view/project-events";
 import { handleTodosInput } from "../view/todo-events";
-import { addTodoToPage, loadAllTodosInFirstProj, loadAllTodosInProject } from "./todos-controller";
-
+import {
+   addTodoToPage,
+   loadAllTodosInFirstProj,
+   loadAllTodosInProject,
+} from "./todos-controller";
 
 function addProjectUsingForm() {
    const projectTitle = getProjectTitleInput();
@@ -21,21 +29,20 @@ function addProjectUsingForm() {
  *  you are able to see its information like its todo items
  */
 function tabIntoProject(e) {
-      const projectsContainer = document.querySelector("#projects-container");
+   const projectsContainer = document.querySelector("#projects-container");
 
-      const targetProject = e.target.parentElement;
-      let targetProjectId = targetProject.getAttribute("data-project-title-id");
+   const targetProject = e.target.parentElement;
+   let targetProjectId = targetProject.getAttribute("data-project-title-id");
 
-      if (projectsContainer.children.length > 0) {
-         const currentProject = projectsContainer.firstChild;
-         const currentProjectId =
-            currentProject.getAttribute("data-project-id");
-         if (currentProjectId === targetProjectId) return;
-         projectsContainer.removeChild(currentProject);
-      }
+   if (projectsContainer.children.length > 0) {
+      const currentProject = projectsContainer.firstChild;
+      const currentProjectId = currentProject.getAttribute("data-project-id");
+      if (currentProjectId === targetProjectId) return;
+      projectsContainer.removeChild(currentProject);
+   }
 
-      renderProject(targetProjectId);
-      loadAllTodosInProject(targetProjectId);
+   renderProject(targetProjectId);
+   loadAllTodosInProject(targetProjectId);
 }
 
 function displayFirstProject() {
@@ -58,16 +65,22 @@ function deleteProject(e) {
 
    const projectsContainer = document.querySelector("#projects-container");
    const project = document.querySelector("#project");
-   const projectId = project.getAttribute("data-project-id")
+   const projectId = project.getAttribute("data-project-id");
 
-   removeProject(projectTitleId)
+   removeProject(projectTitleId);
    projectTitlesContainer.removeChild(projectTitle);
 
    // if the project being removed is also being displayed,
    // remove it from being displayed
    if (projectId === projectTitleId) {
-      projectsContainer.removeChild(project)
+      projectsContainer.removeChild(project);
    }
 }
 
-export { addProjectToPage, tabIntoProject, addProjectUsingForm, deleteProject, displayFirstProject };
+export {
+   addProjectToPage,
+   tabIntoProject,
+   addProjectUsingForm,
+   deleteProject,
+   displayFirstProject,
+};

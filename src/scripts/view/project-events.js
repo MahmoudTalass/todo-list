@@ -42,25 +42,22 @@ function handleProjectsInput() {
       addProjectFormModal.style.display = "none";
    });
 
-
    projectTitlesContainer.addEventListener("click", (e) => {
-      const isProjectTabBtn = e.target.classList.contains("project-tab-btn")
+      const isProjectTabBtn = e.target.classList.contains("project-tab-btn");
       const isDeleteBtn = e.target.classList.contains("remove-project-icon");
 
       if (isProjectTabBtn) {
-         tabIntoProject(e)
+         tabIntoProject(e);
       }
 
       if (isDeleteBtn) {
          deleteProject(e);
       }
-   })
+   });
 
    addEventListener("load", () => {
       if (projectTitlesContainer.children.length > 0) displayFirstProject();
-   })
+   });
 }
-
-
 
 export { handleProjectsInput };

@@ -1,16 +1,14 @@
 import { addTodoUsingForm } from "../controller/todos-controller";
 import { clearAddTodoInputs } from "./todos";
 
-
-
 function handleTodosInput() {
    const projectsContainer = document.querySelector("#projects-container");
    const addTodoFormModal = document.querySelector("#add-todo-form-modal");
    const addTodoForm = document.querySelector("#add-todo-form");
 
    projectsContainer.addEventListener("click", (e) => {
-    if(e.target.classList.contains("add-task-btn"))
-      addTodoFormModal.style.display = "block";
+      if (e.target.classList.contains("add-task-btn"))
+         addTodoFormModal.style.display = "block";
    });
 
    window.addEventListener("click", (e) => {
