@@ -3,10 +3,11 @@ import {
    renderProject,
    renderProjectTitle,
 } from "../view/projects";
-import { addProject, user } from "../model/user";
+import { addProject, removeProject, user } from "../model/user";
 import { addEvntListnrsToProj } from "../view/project-events";
 import { handleTodosInput } from "../view/todo-events";
 import { addTodoToPage, loadAllTodosInProject } from "./todos-controller";
+
 
 function addProjectUsingForm() {
    const projectTitle = getProjectTitleInput();
@@ -20,10 +21,6 @@ function addProjectUsingForm() {
  *  you are able to see its information like its todo items
  */
 function tabIntoProject(e) {
-   const containsProjectBtnClass =
-      e.target.classList.contains("project-tab-btn");
-
-   if (containsProjectBtnClass) {
       const projectsContainer = document.querySelector("#projects-container");
 
       const targetProject = e.target.parentElement;
@@ -39,13 +36,32 @@ function tabIntoProject(e) {
 
       renderProject(targetProjectId);
       loadAllTodosInProject(targetProjectId);
+}
+
+// Renders the project title to the page and adds event to it
+function addProjectToPage(projectTitle, projectId) {
+   renderProjectTitle(projectTitle, projectId);
+}
+
+function deleteProject(e) {
+   const projectTitlesContainer = document.querySelector(
+      "#projects-titles-container"
+   );
+   const projectTitle = e.target.closest(".project-container");
+   const projectTitleId = projectTitle.getAttribute("data-project-title-id");
+
+   const projectsContainer = document.querySelector("#projects-container");
+   const project = document.querySelector("#project");
+   const projectId = project.getAttribute("data-project-id")
+
+   removeProject(projectTitleId)
+   projectTitlesContainer.removeChild(projectTitle);
+
+   // if the project being removed is also being displayed,
+   // remove it from being displayed
+   if (projectId === projectTitleId) {
+      projectsContainer.removeChild(project)
    }
 }
 
-// Redners the project title to the page and adds event to it
-function addProjectToPage(projectTitle, projectId) {
-   renderProjectTitle(projectTitle, projectId);
-   addEvntListnrsToProj(projectId);
-}
-
-export { addProjectToPage, tabIntoProject, addProjectUsingForm };
+export { addProjectToPage, tabIntoProject, addProjectUsingForm, deleteProject };
