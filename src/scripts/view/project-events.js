@@ -45,6 +45,7 @@ function handleProjectsInput() {
    projectTitlesContainer.addEventListener("click", (e) => {
       const isProjectTabBtn = e.target.classList.contains("project-tab-btn");
       const isDeleteBtn = e.target.classList.contains("remove-project-icon");
+      const isEditBtn = e.target.classList.contains('edit-project-icon')
 
       if (isProjectTabBtn) {
          tabIntoProject(e);
@@ -52,6 +53,10 @@ function handleProjectsInput() {
 
       if (isDeleteBtn) {
          deleteProject(e);
+      }
+
+      if (isEditBtn) {
+         
       }
    });
 
