@@ -2,6 +2,7 @@ import {
    tabIntoProject,
    addProjectUsingForm,
    deleteProject,
+   displayFirstProject,
 } from "../controller/projects-controller";
 import { clearProjectTitleInput } from "./projects";
 
@@ -53,6 +54,10 @@ function handleProjectsInput() {
       if (isDeleteBtn) {
          deleteProject(e);
       }
+   })
+
+   addEventListener("load", () => {
+      displayFirstProject();
    })
 }
 
