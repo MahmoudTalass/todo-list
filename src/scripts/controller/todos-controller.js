@@ -1,5 +1,5 @@
 import { addTodoToProject, getRecentTodo } from "../model/project";
-import { getProject } from "../model/user";
+import { getProjectById, getProjectByIndex } from "../model/user";
 import {
    appendTodoToProject,
    getTodoDescInput,
@@ -50,9 +50,17 @@ function addTodoToPage(
 }
 
 function loadAllTodosInProject(projectId) {
-   const projectTodos = getProject(projectId).todosList;
+   const projectTodos = getProjectById(projectId).todosList;
+   addAllTodos(projectTodos)
+}
 
-   projectTodos.forEach((todo) => {
+function loadAllTodosInFirstProj() {
+   const firstProjectInArr = getProjectByIndex(0).todosList;
+   addAllTodos(firstProjectInArr)
+}
+
+function addAllTodos(project) {
+   project.forEach((todo) => {
       const title = todo.title;
       const desc = todo.description;
       const duedate = todo.duedate;
@@ -64,4 +72,4 @@ function loadAllTodosInProject(projectId) {
    });
 }
 
-export { addTodoToPage, addTodoUsingForm, loadAllTodosInProject };
+export { addTodoToPage, addTodoUsingForm, loadAllTodosInProject, loadAllTodosInFirstProj };
