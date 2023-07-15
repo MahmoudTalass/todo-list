@@ -1,5 +1,5 @@
 import { createTodoItem } from "./todo";
-import { user, updateStorage } from "./user";
+import { user, updateStorage, getProject } from "./user";
 
 const Project = (title) => {
    let state = {
@@ -22,7 +22,7 @@ function createProject(title) {
 }
 
 function addTodoToProject(title, desc, duedate, priority, projectId) {
-   let selectedProject = user.projects[projectId];
+   const selectedProject = getProject(projectId);
    let projectTodosIds = selectedProject.todoIds++;
 
    selectedProject.todosList.push(
@@ -32,11 +32,12 @@ function addTodoToProject(title, desc, duedate, priority, projectId) {
 }
 
 function getRecentTodo(projectId) {
-   return user.projects[projectId].todoIds;
+   const project = getProject(projectId)
+   return project.todoIds;
 }
 
 function removeTodo(projectId, todoId) {
-   let projContainingTodo = user.projects[projectId].todosList;
+   let projContainingTodo = getProject(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.splice(todoIndex, 1);
       updateStorage();
@@ -44,7 +45,8 @@ function removeTodo(projectId, todoId) {
 }
 
 function editTodoTitle(projectId, todoId, newTitle) {
-   let projContainingTodo = user.projects[projectId].todosList;
+   let projContainingTodo = getProject(projectId).todosList;
+
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].title = newTitle;
       updateStorage();
@@ -60,7 +62,7 @@ function editTodoDesc(projectId, todoId, newDesc) {
 }
 
 function markAsComplete(projectId, todoId) {
-   let projContainingTodo = user.projects[projectId].todosList;
+   let projContainingTodo = getProject(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
 
    projContainingTodo.todosList[todoIndex].isComplete = true;
