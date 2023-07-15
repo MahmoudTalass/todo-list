@@ -38,9 +38,16 @@ function addProject(title) {
    updateStorage();
 }
 
-function getProject(projectId) {
+// Gets a project with a specific id
+function getProjectById(projectId) {
    const projectIndex = findProjectIndex(projectId)
    return user.projects[projectIndex];
+}
+
+// Gets a project with a specific index (useful for getting a 
+// a project that is in a certain order in the projects array/list)
+function getProjectByIndex(projectId) {
+   return user.projects[projectId];
 }
 
 function removeProject(projectId) {
@@ -76,5 +83,6 @@ export {
    editProjectTitle,
    updateStorage,
    setUser,
-   getProject
+   getProjectById,
+   getProjectByIndex
 };
