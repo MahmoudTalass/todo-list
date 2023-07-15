@@ -83,11 +83,11 @@
 
 /* Add project Form */
 
-.add-project-form-modal {
+.project-form-modal {
    display: none;
 }
 
-.add-project-form {
+.project-form {
    width: 300px;
    height: 180px;
    display: flex;
@@ -95,7 +95,7 @@
    gap: 1.5rem;
 }
 
-.add-project-input-container {
+.project-input-container {
    display: flex;
    flex-direction: column;
    gap: 1.5rem;
@@ -107,7 +107,7 @@
    height: 1.5rem;
 }
 
-.create-project-btn {
+.project-form-btn {
    background-color: var(--color4);
    border: none;
    color: inherit;
