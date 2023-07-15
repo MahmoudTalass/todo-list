@@ -5,8 +5,6 @@ import { clearAddTodoInputs } from "./todos";
 
 function handleTodosInput() {
    const projectsContainer = document.querySelector("#projects-container");
-
-   const addTodoBtn = document.querySelector("#add-task-btn");
    const addTodoFormModal = document.querySelector("#add-todo-form-modal");
    const addTodoForm = document.querySelector("#add-todo-form");
 
