@@ -39,25 +39,27 @@ function addProject(title) {
 }
 
 function getProject(projectId) {
-   return user.projects[projectId];
+   const projectIndex = findProjectIndex(projectId)
+   return user.projects[projectIndex];
 }
 
 function removeProject(projectId) {
-   if (projectId === 0) return;
-
-   let projectIndex = user.projects.findIndex(
-      (project) => project.id === projectId
-   );
+   const projectIndex = findProjectIndex(projectId)
    user.projects.splice(projectIndex, 1);
    updateStorage();
 }
 
 function editProjectTitle(projectId, newTitle) {
-   let projectIndex = user.projects.findIndex(
-      (project) => project.id === projectId
-   );
+   const projectIndex = findProjectIndex(projectId)
+
    user.projects[projectIndex].title = newTitle;
    updateStorage();
+}
+
+function findProjectIndex(projectId) {
+   return user.projects.findIndex(
+   (project) => project.id === Number(projectId)
+)  ;
 }
 
 function updateStorage() {
