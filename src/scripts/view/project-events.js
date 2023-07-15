@@ -1,11 +1,9 @@
 import {
    tabIntoProject,
    addProjectUsingForm,
+   deleteProject,
 } from "../controller/projects-controller";
 import { clearProjectTitleInput } from "./projects";
-
-const projectTitleContainers =
-   document.getElementsByClassName("project-container");
 
 // Display add project form
 function handleProjectsInput() {
@@ -13,6 +11,9 @@ function handleProjectsInput() {
    const addProjectForm = document.querySelector("#add-project-form");
    const addProjectFormModal = document.querySelector(
       "#add-project-form-modal"
+   );
+   const projectTitlesContainer = document.querySelector(
+      "#projects-titles-container"
    );
 
    // Display add project form when add project btn is clicked
@@ -39,16 +40,22 @@ function handleProjectsInput() {
       clearProjectTitleInput();
       addProjectFormModal.style.display = "none";
    });
+
+
+   projectTitlesContainer.addEventListener("click", (e) => {
+      const isProjectTabBtn = e.target.classList.contains("project-tab-btn")
+      const isDeleteBtn = e.target.classList.contains("remove-project-icon");
+
+      if (isProjectTabBtn) {
+         tabIntoProject(e)
+      }
+
+      if (isDeleteBtn) {
+         deleteProject(e);
+      }
+   })
 }
 
-/*
- *  Add event listener to last added project title and
- *  give it tabbing ability
- */
-function addEvntListnrsToProj(recentProjectId) {
-   let recentTitle = projectTitleContainers[recentProjectId];
 
-   recentTitle.addEventListener("click", tabIntoProject);
-}
 
-export { addEvntListnrsToProj, handleProjectsInput };
+export { handleProjectsInput };
