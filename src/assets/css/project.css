@@ -17,6 +17,8 @@
    display: flex;
    align-self: flex-start;
    align-items: center;
+   background-color: inherit;
+   border: none;
    gap: 1rem;
    margin-bottom: 2rem;
    margin-left: -5px;
