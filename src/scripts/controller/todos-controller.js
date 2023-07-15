@@ -51,7 +51,7 @@ function addTodoToPage(
 
 function loadAllTodosInProject(projectId) {
    const projectTodos = getProject(projectId).todosList;
-   
+
    projectTodos.forEach((todo) => {
       const title = todo.title;
       const desc = todo.description;
