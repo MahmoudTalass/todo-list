@@ -14,4 +14,4 @@ import { handleTodosInput } from "./scripts/view/todo-events";
 renderPage();
 initialLoad();
 handleProjectsInput();
-handleTodosInput()
+handleTodosInput();
