@@ -3,7 +3,7 @@ import {
    renderProject,
    renderProjectTitle,
 } from "../view/projects";
-import { addProject, removeProject, user } from "../model/user";
+import { addProject, getProjectByIndex, removeProject, user } from "../model/user";
 import { addEvntListnrsToProj } from "../view/project-events";
 import { handleTodosInput } from "../view/todo-events";
 import { addTodoToPage, loadAllTodosInFirstProj, loadAllTodosInProject } from "./todos-controller";
@@ -39,7 +39,8 @@ function tabIntoProject(e) {
 }
 
 function displayFirstProject() {
-   renderProject(0);
+   const firstProjectInArrId = getProjectByIndex(0).id;
+   renderProject(firstProjectInArrId);
    loadAllTodosInFirstProj();
 }
 
