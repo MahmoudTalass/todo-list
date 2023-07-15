@@ -241,6 +241,8 @@ function clearAddTodoInputs() {
    todoDescInput.value = "";
 }
 
+
+
 export {
    renderTodo,
    appendTodoToProject,
@@ -249,5 +251,5 @@ export {
    getTodoDuedateInput,
    getTodoPriorityInput,
    getTodoTitleInput,
-   clearAddTodoInputs,
+   clearAddTodoInputs
 };
