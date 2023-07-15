@@ -20,7 +20,7 @@ function renderProject(projectId) {
    project.id = "project";
    project.setAttribute("data-project-id", projectId);
 
-   const addTaskBtn = document.createElement("div");
+   const addTaskBtn = document.createElement("button");
    addTaskBtn.classList.add("add-task-btn");
    addTaskBtn.id = "add-task-btn";
 
