@@ -1,5 +1,5 @@
 import { createTodoItem } from "./todo";
-import { user, updateStorage, getProject } from "./user";
+import { user, updateStorage, getProjectById } from "./user";
 
 const Project = (title) => {
    let state = {
@@ -22,7 +22,7 @@ function createProject(title) {
 }
 
 function addTodoToProject(title, desc, duedate, priority, projectId) {
-   const selectedProject = getProject(projectId);
+   const selectedProject = getProjectById(projectId);
    let projectTodosIds = selectedProject.todoIds++;
 
    selectedProject.todosList.push(
@@ -32,12 +32,12 @@ function addTodoToProject(title, desc, duedate, priority, projectId) {
 }
 
 function getRecentTodo(projectId) {
-   const project = getProject(projectId)
+   const project = getProjectById(projectId)
    return project.todoIds;
 }
 
 function removeTodo(projectId, todoId) {
-   let projContainingTodo = getProject(projectId).todosList;
+   let projContainingTodo = getProjectById(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.splice(todoIndex, 1);
       updateStorage();
@@ -45,7 +45,7 @@ function removeTodo(projectId, todoId) {
 }
 
 function editTodoTitle(projectId, todoId, newTitle) {
-   let projContainingTodo = getProject(projectId).todosList;
+   let projContainingTodo = getProjectById(projectId).todosList;
 
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].title = newTitle;
@@ -54,7 +54,7 @@ function editTodoTitle(projectId, todoId, newTitle) {
 }
 
 function editTodoDesc(projectId, todoId, newDesc) {
-   let projContainingTodo = user.projects[projectId].todosList;
+   let projContainingTodo = getProjectById(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
    projContainingTodo.todosList[todoIndex].description = newDesc;
       updateStorage();
@@ -62,7 +62,7 @@ function editTodoDesc(projectId, todoId, newDesc) {
 }
 
 function markAsComplete(projectId, todoId) {
-   let projContainingTodo = getProject(projectId).todosList;
+   let projContainingTodo = getProjectById(projectId).todosList;
    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
 
    projContainingTodo.todosList[todoIndex].isComplete = true;
