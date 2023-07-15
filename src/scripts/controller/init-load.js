@@ -1,5 +1,5 @@
 import loadLocalStorage from "./load-localStorage";
-import { createUser, user } from "../model/user";
+import { createUser, getProjectById } from "../model/user";
 import { addProjectToPage } from "./projects-controller";
 
 function initialLoad() {
@@ -8,7 +8,7 @@ function initialLoad() {
       loadLocalStorage();
    } else {
       createUser("user #1");
-      addProjectToPage(user.projects[0].title, user.projects[0].id);
+      addProjectToPage(getProjectById(0).title, getProjectById(0).id);
    }
 }
 
