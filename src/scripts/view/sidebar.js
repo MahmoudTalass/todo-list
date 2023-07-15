@@ -9,10 +9,6 @@ function renderSidebar() {
    const sidebarElCont = document.createElement("div");
    sidebarElCont.classList.add("sidebar-element-container");
 
-   const allTodos = document.createElement("div");
-   allTodos.classList.add("all-todos");
-   allTodos.textContent = "All";
-
    const projectsContHeading = document.createElement("div");
    projectsContHeading.classList.add("projects-container-heading");
 
@@ -36,7 +32,6 @@ function renderSidebar() {
    projectsContHeading.appendChild(projectsHeading);
    projectsContHeading.appendChild(addProjectBtn);
 
-   sidebarElCont.appendChild(allTodos);
    sidebarElCont.appendChild(projectsContHeading);
    sidebarElCont.appendChild(projectsTitlesContainer);
 
