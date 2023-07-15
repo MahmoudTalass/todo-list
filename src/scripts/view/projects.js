@@ -88,7 +88,7 @@ function renderAddProjectForm() {
    projectForm("add")
 }
 
-function editProjectTitleForm() {
+function renderEditProjectTitleForm() {
    projectForm("edit")
 }
 
@@ -151,5 +151,5 @@ export {
    renderAddProjectForm,
    getProjectTitleInput,
    clearProjectTitleInput,
-   editProjectTitleForm
+   renderEditProjectTitleForm
 };
