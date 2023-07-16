@@ -71,8 +71,6 @@ function findProjectIndex(projectId) {
 
 function updateStorage() {
    localStorage.setItem("user", JSON.stringify(user));
-   console.log(JSON.parse(localStorage.getItem("user")))
-   console.log(user)
 }
 
 export {
