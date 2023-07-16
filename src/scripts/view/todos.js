@@ -93,7 +93,7 @@ function todoForm(formType) {
    formHeading.classList.add("todo-form-heading");
    formHeading.textContent = `${
       formType.charAt(0).toUpperCase() + formType.substring(1)
-   }task`;
+   } task`;
 
    const allInputsContainer = document.createElement("section");
    allInputsContainer.classList.add("todo-inputs-container");
@@ -102,13 +102,13 @@ function todoForm(formType) {
    input1Container.classList.add("input-container");
 
    const todoTitleLabel = document.createElement("label");
-   todoTitleLabel.setAttribute("for", "todo-title-input");
+   todoTitleLabel.setAttribute("for", `todo-title-input-${formType}`);
    todoTitleLabel.classList.add("todo-title-input-label");
    todoTitleLabel.textContent = "Title";
 
    const todoTitleInput = document.createElement("input");
    todoTitleInput.type = "text";
-   todoTitleInput.id = "todo-title-input";
+   todoTitleInput.id = `todo-title-input-${formType}`;
    todoTitleInput.classList.add("todo-title-input", "todo-form-input");
    todoTitleInput.name = "todo-title";
    todoTitleInput.required = true;
@@ -120,13 +120,13 @@ function todoForm(formType) {
    input2Container.classList.add("input-container");
 
    const todoDuedateLabel = document.createElement("label");
-   todoDuedateLabel.setAttribute("for", "todo-duedate-input");
+   todoDuedateLabel.setAttribute("for", `todo-duedate-input-${formType}`);
    todoDuedateLabel.classList.add("todo-duedate-label");
    todoDuedateLabel.textContent = "Due date";
 
    const todoDuedateInput = document.createElement("input");
    todoDuedateInput.type = "date";
-   todoDuedateInput.id = "todo-duedate-input";
+   todoDuedateInput.id = `todo-duedate-input-${formType}`;
    todoDuedateInput.classList.add("todo-duedate-input", "todo-form-input");
    todoDuedateInput.name = "duedate";
    todoDuedateInput.required = true;
@@ -140,13 +140,13 @@ function todoForm(formType) {
    input3Container.classList.add("input-container");
 
    const todoPriorityLabel = document.createElement("label");
-   todoPriorityLabel.setAttribute("for", "todo-priority-dropdown");
+   todoPriorityLabel.setAttribute("for", `todo-priority-dropdown-${formType}`);
    todoPriorityLabel.classList.add("todo-priority-label");
    todoPriorityLabel.textContent = "Priority";
 
    const todoPriorityDropdown = document.createElement("select");
    todoPriorityDropdown.required = true;
-   todoPriorityDropdown.id = "todo-priority-dropdown";
+   todoPriorityDropdown.id = `todo-priority-dropdown-${formType}`;
    todoPriorityDropdown.classList.add(
       "todo-priority-dropdown",
       "todo-form-input"
@@ -176,12 +176,12 @@ function todoForm(formType) {
    input4Container.classList.add("input-container");
 
    const todoDescriptionLabel = document.createElement("label");
-   todoDescriptionLabel.setAttribute("for", "todo-description-input");
+   todoDescriptionLabel.setAttribute("for", `todo-description-input-${formType}`);
    todoDescriptionLabel.classList.add("todo-description-label");
    todoDescriptionLabel.textContent = "Description";
 
    const todoDescriptionInput = document.createElement("textarea");
-   todoDescriptionInput.id = "todo-description-input";
+   todoDescriptionInput.id = `todo-description-input-${formType}`;
    todoDescriptionInput.classList.add("todo-description-input");
    todoDescriptionInput.name = "todo-description";
    todoDescriptionInput.required = true;
@@ -261,6 +261,7 @@ export {
    renderTodo,
    appendTodoToProject,
    renderAddTodoForm,
+   renderEditTodoForm,
    getTodoDescInput,
    getTodoDuedateInput,
    getTodoPriorityInput,
