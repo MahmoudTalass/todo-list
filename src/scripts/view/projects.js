@@ -142,8 +142,6 @@ function getProjectTitleInput(formType) {
 
 function clearProjectTitleInput(formType) {
    const projectInput = document.querySelector(`#project-title-input-${formType}`);
-   console.log(projectInput)
-   console.log(projectInput.value)
    projectInput.value = "";
 }
 
