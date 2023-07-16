@@ -1,5 +1,6 @@
 .sidebar {
    background-color: var(--color5);
+   height: 100%;
 }
 
 .sidebar-element-container {
