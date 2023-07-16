@@ -105,7 +105,10 @@ function projectForm(formType) {
    inputContainer.classList.add("project-input-container");
 
    const projectTitleInputLabel = document.createElement("label");
-   projectTitleInputLabel.setAttribute("for", "project-title-input");
+   projectTitleInputLabel.setAttribute(
+      "for",
+      `project-title-input-${formType}`
+   );
    projectTitleInputLabel.classList.add("project-title-input-label");
    projectTitleInputLabel.textContent = "Project Title";
 
@@ -135,13 +138,18 @@ function projectForm(formType) {
 }
 
 function getProjectTitleInput(formType) {
-   const addProjectInput = document.querySelector(`#project-title-input-${formType}`).value;
+   const addProjectInput = document.querySelector(
+      `#project-title-input-${formType}`
+   ).value;
 
    return addProjectInput;
 }
 
 function clearProjectTitleInput(formType) {
-   const projectInput = document.querySelector(`#project-title-input-${formType}`);
+   const projectInput = document.querySelector(
+      `#project-title-input-${formType}`
+   );
+
    projectInput.value = "";
 }
 
