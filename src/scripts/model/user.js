@@ -50,13 +50,13 @@ function getProjectByIndex(projectId) {
    return user.projects[projectId];
 }
 
-function removeProject(projectId) {
+function removeProjectData(projectId) {
    const projectIndex = findProjectIndex(projectId)
    user.projects.splice(projectIndex, 1);
    updateStorage();
 }
 
-function editProjectTitle(projectId, newTitle) {
+function editProjectTitleData(projectId, newTitle) {
    const projectIndex = findProjectIndex(projectId)
 
    user.projects[projectIndex].title = newTitle;
@@ -79,10 +79,11 @@ export {
    createUser,
    user,
    addProject,
-   removeProject,
-   editProjectTitle,
+   removeProjectData,
+   editProjectTitleData,
    updateStorage,
    setUser,
    getProjectById,
-   getProjectByIndex
+   getProjectByIndex,
+   findProjectIndex
 };
