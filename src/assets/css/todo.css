@@ -50,11 +50,11 @@
 
 /* Add todo form */
 
-.add-todo-form-modal {
+.todo-form-modal {
    display: none;
 }
 
-.add-todo-form {
+.todo-form {
    width: 300px;
    display: flex;
    flex-direction: column;
@@ -62,11 +62,11 @@
    align-items: center;
 }
 
-.add-todo-form-heading {
+.todo-form-heading {
    font-size: 1.4rem;
 }
 
-.add-todo-inputs-container {
+.todo-inputs-container {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -91,7 +91,7 @@
    border-radius: 0.3rem;
 }
 
-.create-todo-btn {
+.todo-form-btn {
    display: flex;
    align-items: center;
    justify-content: center;
