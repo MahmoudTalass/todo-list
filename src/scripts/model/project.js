@@ -43,18 +43,35 @@ function removeTodo(projectId, todoId) {
    updateStorage();
 }
 
-function editTodoTitle(projectId, todoId, newTitle) {
-   let projContainingTodo = getProjectById(projectId).todosList;
+// function editTodoTitle(projectId, todoId, newTitle) {
+//    let projContainingTodo = getProjectById(projectId).todosList;
 
-   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
-   projContainingTodo.todosList[todoIndex].title = newTitle;
-   updateStorage();
-}
+//    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+//    projContainingTodo.todosList[todoIndex].title = newTitle;
+//    updateStorage();
+// }
 
-function editTodoDesc(projectId, todoId, newDesc) {
-   let projContainingTodo = getProjectById(projectId).todosList;
-   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
-   projContainingTodo.todosList[todoIndex].description = newDesc;
+// function editTodoDesc(projectId, todoId, newDesc) {
+//    let projContainingTodo = getProjectById(projectId).todosList;
+//    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+//    projContainingTodo.todosList[todoIndex].description = newDesc;
+//    updateStorage();
+// }
+
+// function editTodoDuedate(projectId, todoId, newDuedate) {
+//    let projContainingTodo = getProjectById(projectId).todosList;
+//    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+// }
+
+function editTodo(projectId, todoId, newValues) {
+   const todo = getTodo(projectId, todoId);
+   const { title, duedate, desc, priority } = newValues;
+
+   todo.title = title;
+   todo.duedate = duedate;
+   todo.description = desc;
+   todo.priority = priority;
+
    updateStorage();
 }
 
@@ -67,4 +84,10 @@ function markAsComplete(projectId, todoId) {
    updateStorage();
 }
 
-export { createProject, addTodoToProject, removeTodo, getRecentTodo };
+function getTodo(projectId, todoId) {
+   let projContainingTodo = getProjectById(projectId).todosList;
+   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+   return projContainingTodo.todosList[todoIndex];
+}
+
+export { createProject, addTodoToProject, removeTodo, getRecentTodo, editTodo };
