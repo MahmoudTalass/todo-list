@@ -85,22 +85,21 @@ function renderProjectTitle(title, projectId) {
 }
 
 function renderAddProjectForm() {
-   projectForm("add")
+   projectForm("add");
 }
 
 function renderEditProjectTitleForm() {
-   projectForm("edit")
+   projectForm("edit");
 }
 
 function projectForm(formType) {
-   debugger
    const formModal = document.createElement("div");
    const form = document.createElement("form");
 
    formModal.classList.add("project-form-modal", "form-modal");
    formModal.id = `${formType}-project-form-modal`;
    form.classList.add("project-form");
-   form.id = `${formType}-project-form`
+   form.id = `${formType}-project-form`;
 
    const inputContainer = document.createElement("div");
    inputContainer.classList.add("project-input-container");
@@ -112,7 +111,7 @@ function projectForm(formType) {
 
    const projectTitleInput = document.createElement("input");
    projectTitleInput.type = "text";
-   projectTitleInput.id = "project-title-input";
+   projectTitleInput.id = `project-title-input-${formType}`;
    projectTitleInput.classList.add("project-title-input");
    projectTitleInput.name = "title";
    projectTitleInput.required = true;
@@ -123,7 +122,9 @@ function projectForm(formType) {
    const createProjectBtn = document.createElement("button");
    createProjectBtn.id = "project-form-btn";
    createProjectBtn.classList.add("project-form-btn");
-   createProjectBtn.textContent = `${formType.charAt(0).toUpperCase() + formType.substring(1)}`;
+   createProjectBtn.textContent = `${
+      formType.charAt(0).toUpperCase() + formType.substring(1)
+   }`;
 
    form.appendChild(inputContainer);
    form.appendChild(createProjectBtn);
@@ -133,15 +134,17 @@ function projectForm(formType) {
    body.appendChild(formModal);
 }
 
-function getProjectTitleInput() {
-   const addProjectInput = document.querySelector("#project-title-input");
+function getProjectTitleInput(formType) {
+   const addProjectInput = document.querySelector(`#project-title-input-${formType}`).value;
 
-   return addProjectInput.value;
+   return addProjectInput;
 }
 
-function clearProjectTitleInput() {
-   const addProjectInput = document.querySelector("#project-title-input");
-   addProjectInput.value = "";
+function clearProjectTitleInput(formType) {
+   const projectInput = document.querySelector(`#project-title-input-${formType}`);
+   console.log(projectInput)
+   console.log(projectInput.value)
+   projectInput.value = "";
 }
 
 export {
@@ -151,5 +154,5 @@ export {
    renderAddProjectForm,
    getProjectTitleInput,
    clearProjectTitleInput,
-   renderEditProjectTitleForm
+   renderEditProjectTitleForm,
 };
