@@ -32,12 +32,12 @@ function handleProjectsInput() {
    window.addEventListener("click", (e) => {
       if (e.target === addProjectFormModal) {
          addProjectFormModal.style.display = "none";
-         clearProjectTitleInput();
+         clearProjectTitleInput("add");
       }
 
       if (e.target === editProjectFormModal) {
          editProjectFormModal.style.display = "none";
-         clearProjectTitleInput();
+         clearProjectTitleInput("edit");
       }
    });
 
