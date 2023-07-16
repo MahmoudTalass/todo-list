@@ -72,21 +72,31 @@ function renderTodo(title, description, duedate, priority, todoId) {
 }
 
 function renderAddTodoForm() {
+   todoForm("add");
+}
+
+function renderEditTodoForm() {
+   todoForm("edit")
+}
+
+function todoForm(formType) {
    const formModal = document.createElement("div");
    const form = document.createElement("form");
    const formHeading = document.createElement("p");
 
-   formModal.classList.add("form-modal", "add-todo-form-modal");
-   formModal.id = "add-todo-form-modal";
+   formModal.classList.add("form-modal", "todo-form-modal");
+   formModal.id = `${formType}-todo-form-modal`;
 
-   form.classList.add("add-todo-form");
-   form.id = "add-todo-form";
+   form.classList.add("todo-form");
+   form.id = `${formType}-todo-form`;
 
-   formHeading.classList.add("add-todo-form-heading");
-   formHeading.textContent = "Add task";
+   formHeading.classList.add("todo-form-heading");
+   formHeading.textContent = `${
+      formType.charAt(0).toUpperCase() + formType.substring(1)
+   }task`;
 
    const allInputsContainer = document.createElement("section");
-   allInputsContainer.classList.add("add-todo-inputs-container");
+   allInputsContainer.classList.add("todo-inputs-container");
 
    const input1Container = document.createElement("div");
    input1Container.classList.add("input-container");
@@ -186,14 +196,16 @@ function renderAddTodoForm() {
    allInputsContainer.appendChild(input3Container);
    allInputsContainer.appendChild(input4Container);
 
-   const createTodoBtn = document.createElement("button");
-   createTodoBtn.id = "create-todo-btn";
-   createTodoBtn.classList.add("create-todo-btn");
-   createTodoBtn.textContent = "Add";
+   const todoFormBtn = document.createElement("button");
+   todoFormBtn.id = "todo-form-btn";
+   todoFormBtn.classList.add("todo-form-btn");
+   todoFormBtn.textContent = `${
+      formType.charAt(0).toUpperCase() + formType.substring(1)
+   }`;
 
    form.appendChild(formHeading);
    form.appendChild(allInputsContainer);
-   form.appendChild(createTodoBtn);
+   form.appendChild(todoFormBtn);
 
    formModal.appendChild(form);
 
