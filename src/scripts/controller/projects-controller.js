@@ -5,8 +5,10 @@ import {
 } from "../view/projects";
 import {
    addProject,
+   editProjectTitleData,
+   findProjectIndex,
    getProjectByIndex,
-   removeProject,
+   removeProjectData,
    user,
 } from "../model/user";
 import { addEvntListnrsToProj } from "../view/project-events";
@@ -18,7 +20,7 @@ import {
 } from "./todos-controller";
 
 function addProjectUsingForm() {
-   const projectTitle = getProjectTitleInput();
+   const projectTitle = getProjectTitleInput("add");
    addProject(projectTitle);
    const recentProjectId = user.projects[user.projects.length - 1].id;
    addProjectToPage(projectTitle, recentProjectId);
@@ -56,7 +58,7 @@ function addProjectToPage(projectTitle, projectId) {
    renderProjectTitle(projectTitle, projectId);
 }
 
-function deleteProject(e) {
+function removeProject(e) {
    const projectTitlesContainer = document.querySelector(
       "#projects-titles-container"
    );
@@ -67,7 +69,7 @@ function deleteProject(e) {
    const project = document.querySelector("#project");
    const projectId = project.getAttribute("data-project-id");
 
-   removeProject(projectTitleId);
+   removeProjectData(projectTitleId);
    projectTitlesContainer.removeChild(projectTitle);
 
    // if the project being removed is also being displayed,
@@ -77,10 +79,26 @@ function deleteProject(e) {
    }
 }
 
+function editProjectTitle() {
+   const editProjectForm = document.querySelector("#edit-project-form");
+   const editProjectFormId = editProjectForm.getAttribute(
+      "data-project-being-edited"
+   );
+
+   const projectsTitlesCont = document.querySelector("#projects-titles-container")
+   const projectBtnIndex = findProjectIndex(editProjectFormId);
+   const projectBtn = projectsTitlesCont.children[projectBtnIndex].children[0];
+   const newProjectTitle = getProjectTitleInput("edit");
+
+   editProjectTitleData(editProjectFormId, newProjectTitle);
+   projectBtn.textContent = newProjectTitle;
+}
+
 export {
    addProjectToPage,
    tabIntoProject,
    addProjectUsingForm,
-   deleteProject,
+   removeProject,
    displayFirstProject,
+   editProjectTitle,
 };
