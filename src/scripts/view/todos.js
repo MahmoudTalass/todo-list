@@ -217,39 +217,39 @@ function appendTodoToProject(todoItem) {
    project.appendChild(todoItem);
 }
 
-function getTodoTitleInput() {
-   const todoTitleInput = document.querySelector("#todo-title-input").value;
+function getTodoTitleInput(formType) {
+   const todoTitleInput = document.querySelector(`#todo-title-input-${formType}`);
 
-   return todoTitleInput;
+   return todoTitleInput.value;
 }
 
-function getTodoDuedateInput() {
-   const todoDuedateInput = document.querySelector("#todo-duedate-input").value;
+function getTodoDuedateInput(formType) {
+   const todoDuedateInput = document.querySelector(`#todo-duedate-input-${formType}`);
 
-   return todoDuedateInput;
+   return todoDuedateInput.value;
 }
 
-function getTodoPriorityInput() {
+function getTodoPriorityInput(formType) {
    const todoPriorityInput = document.querySelector(
-      "#todo-priority-dropdown"
-   ).value;
+      `#todo-priority-dropdown-${formType}`
+   );
 
-   return todoPriorityInput;
+   return todoPriorityInput.value;
 }
 
-function getTodoDescInput() {
+function getTodoDescInput(formType) {
    const todoDescInput = document.querySelector(
-      "#todo-description-input"
-   ).value;
+      `#todo-description-input-${formType}`
+   );
 
-   return todoDescInput;
+   return todoDescInput.value;
 }
 
-function clearAddTodoInputs() {
-   const todoTitleInput = document.querySelector("#todo-title-input");
-   const todoDuedateInput = document.querySelector("#todo-duedate-input");
-   const todoPriorityInput = document.querySelector("#todo-priority-dropdown");
-   const todoDescInput = document.querySelector("#todo-description-input");
+function clearAddTodoInputs(formType) {
+   const todoTitleInput = document.querySelector(`#todo-title-input-${formType}`);
+   const todoDuedateInput = document.querySelector(`#todo-duedate-input-${formType}`);
+   const todoPriorityInput = document.querySelector(`#todo-priority-dropdown-${formType}`);
+   const todoDescInput = document.querySelector(`#todo-description-input-${formType}`);
 
    todoTitleInput.value = "";
    todoDuedateInput.value = format(new Date(), "yyyy-MM-dd");
