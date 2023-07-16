@@ -13,10 +13,10 @@ function addTodoUsingForm() {
    const id = document
       .querySelector("#project")
       .getAttribute("data-project-id");
-   const todoTitle = getTodoTitleInput();
-   const todoDuedate = getTodoDuedateInput();
-   const todoPriority = getTodoPriorityInput();
-   const todoDesc = getTodoDescInput();
+   const todoTitle = getTodoTitleInput("add");
+   const todoDuedate = getTodoDuedateInput("add");
+   const todoPriority = getTodoPriorityInput("add");
+   const todoDesc = getTodoDescInput("add");
 
    const recentTodoId = getRecentTodo(id);
 
