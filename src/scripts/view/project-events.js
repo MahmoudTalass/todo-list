@@ -1,10 +1,10 @@
 import {
    tabIntoProject,
    addProjectUsingForm,
-   deleteProject,
+   removeProject,
    displayFirstProject,
 } from "../controller/projects-controller";
-import { editProjectTitle } from "../model/user";
+import { editProjectTitle } from "../controller/projects-controller";
 import { clearProjectTitleInput } from "./projects";
 
 // Display add project form
@@ -14,6 +14,8 @@ function handleProjectsInput() {
    const addProjectFormModal = document.querySelector(
       "#add-project-form-modal"
    );
+
+   const editProjectForm = document.querySelector("#edit-project-form");
    const editProjectFormModal = document.querySelector(
       "#edit-project-form-modal"
    );
@@ -47,8 +49,15 @@ function handleProjectsInput() {
    addProjectForm.addEventListener("submit", (e) => {
       e.preventDefault();
       addProjectUsingForm();
-      clearProjectTitleInput();
+      clearProjectTitleInput("add");
       addProjectFormModal.style.display = "none";
+   });
+
+   editProjectForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      editProjectTitle();
+      clearProjectTitleInput("edit");
+      editProjectFormModal.style.display = "none"
    });
 
    projectTitlesContainer.addEventListener("click", (e) => {
@@ -61,12 +70,14 @@ function handleProjectsInput() {
       }
 
       if (isDeleteBtn) {
-         deleteProject(e);
+         removeProject(e);
       }
 
       if (isEditBtn) {
-         editProjectFormModal.style.display = "block"
-         // editProjectTitle(e);
+         editProjectFormModal.style.display = "block";
+         const project = e.target.closest(".project-container");
+         const projectId = project.getAttribute("data-project-title-id");
+         editProjectForm.setAttribute("data-project-being-edited", projectId);
       }
    });
 
