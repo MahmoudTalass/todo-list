@@ -1,4 +1,9 @@
-import { addTodoUsingForm, editTodo, removeTodo, todoToggleCompletion } from "../controller/todos-controller";
+import {
+   addTodoUsingForm,
+   editTodo,
+   removeTodo,
+   todoToggleCompletion,
+} from "../controller/todos-controller";
 import { clearTodoFormInputs } from "./todos";
 
 function handleTodosInput() {
@@ -11,10 +16,12 @@ function handleTodosInput() {
    const editTodoForm = document.querySelector("#edit-todo-form");
 
    projectsContainer.addEventListener("click", (e) => {
-      const isAddTaskBtn = e.target.classList.contains("add-task-btn");
+      const isAddTaskBtn = e.target.classList.contains("add-task");
       const isEditTaskBtn = e.target.classList.contains("edit-todo-icon");
-      const isRemoveTaskBtn = e.target.classList.contains("remove-todo-icon")
-      const isCompleteInput = e.target.classList.contains("mark-as-complete-input")
+      const isRemoveTaskBtn = e.target.classList.contains("remove-todo-icon");
+      const isCompleteInput = e.target.classList.contains(
+         "mark-as-complete-input"
+      );
 
       if (isAddTaskBtn) {
          addTodoFormModal.style.display = "block";
@@ -28,16 +35,12 @@ function handleTodosInput() {
       }
 
       if (isRemoveTaskBtn) {
-         removeTodo(e)
+         removeTodo(e);
       }
 
       if (isCompleteInput) {
-         todoToggleCompletion(e)
+         todoToggleCompletion(e);
       }
-
-
-
-      
    });
 
    window.addEventListener("click", (e) => {
