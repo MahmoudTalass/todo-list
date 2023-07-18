@@ -55,12 +55,10 @@ function editTodoData(projectId, todoId, newValues) {
    updateStorage();
 }
 
-function markAsComplete(projectId, todoId) {
-   let projContainingTodo = getProjectById(projectId).todosList;
-   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+function todoToggleCompletionData(projectId, todoId) {
+   let todo = getTodo(projectId, todoId);
 
-   projContainingTodo.todosList[todoIndex].isComplete = true;
-   removeTodo(projectId, todoId);
+   todo.isComplete = !todo.isComplete;
    updateStorage();
 }
 
@@ -86,4 +84,5 @@ export {
    getRecentTodo,
    editTodoData,
    findTodoIndex,
+   todoToggleCompletionData
 };
