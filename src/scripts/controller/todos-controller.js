@@ -3,6 +3,7 @@ import {
    editTodoData,
    findTodoIndex,
    getRecentTodo,
+   removeTodoData,
 } from "../model/project";
 import { getProjectById, getProjectByIndex } from "../model/user";
 import {
@@ -77,6 +78,17 @@ function addAllTodos(project) {
    });
 }
 
+function removeTodo(e) {
+   const todo = e.target.closest(".todo-container")
+   const todoId = todo.getAttribute("data-todo-id")
+   const project = document.querySelector("#project")
+   const projectId = project.getAttribute("data-project-id")
+
+   removeTodoData(projectId, todoId)
+   project.removeChild(todo)
+   
+}
+
 function editTodo() {
    const project = document.querySelector("#project");
    const projectId = project.getAttribute("data-project-id");
@@ -113,4 +125,5 @@ export {
    loadAllTodosInProject,
    loadAllTodosInFirstProj,
    editTodo,
+   removeTodo
 };
