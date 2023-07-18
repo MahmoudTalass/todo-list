@@ -21,15 +21,15 @@ function renderProject(projectId) {
    project.setAttribute("data-project-id", projectId);
 
    const addTaskBtn = document.createElement("button");
-   addTaskBtn.classList.add("add-task-btn");
+   addTaskBtn.classList.add("add-task-btn", "add-task");
    addTaskBtn.id = "add-task-btn";
 
    const addTaskIcon = new Image();
-   addTaskIcon.classList.add("add-task-icon");
+   addTaskIcon.classList.add("add-task-icon", "add-task");
    addTaskIcon.src = plusIcon;
 
    const addTaskText = document.createElement("p");
-   addTaskText.classList.add("add-task-text");
+   addTaskText.classList.add("add-task-text", "add-task");
    addTaskText.textContent = "Add Task";
 
    addTaskBtn.appendChild(addTaskIcon);
