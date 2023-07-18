@@ -81,12 +81,12 @@ function removeProject(e) {
 
 function editProjectTitle() {
    const editProjectForm = document.querySelector("#edit-project-form");
-   const editProjectFormId = editProjectForm.getAttribute(
+   const editedProjectId = editProjectForm.getAttribute(
       "data-project-being-edited"
    );
 
    const projectsTitlesCont = document.querySelector("#projects-titles-container")
-   const projectBtnIndex = findProjectIndex(editProjectFormId);
+   const projectBtnIndex = findProjectIndex(editedProjectId);
    const projectBtn = projectsTitlesCont.children[projectBtnIndex].children[0];
    const newProjectTitle = getProjectTitleInput("edit");
 
