@@ -43,27 +43,7 @@ function removeTodo(projectId, todoId) {
    updateStorage();
 }
 
-// function editTodoTitle(projectId, todoId, newTitle) {
-//    let projContainingTodo = getProjectById(projectId).todosList;
-
-//    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
-//    projContainingTodo.todosList[todoIndex].title = newTitle;
-//    updateStorage();
-// }
-
-// function editTodoDesc(projectId, todoId, newDesc) {
-//    let projContainingTodo = getProjectById(projectId).todosList;
-//    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
-//    projContainingTodo.todosList[todoIndex].description = newDesc;
-//    updateStorage();
-// }
-
-// function editTodoDuedate(projectId, todoId, newDuedate) {
-//    let projContainingTodo = getProjectById(projectId).todosList;
-//    let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
-// }
-
-function editTodo(projectId, todoId, newValues) {
+function editTodoData(projectId, todoId, newValues) {
    const todo = getTodo(projectId, todoId);
    const { title, duedate, desc, priority } = newValues;
 
@@ -85,9 +65,25 @@ function markAsComplete(projectId, todoId) {
 }
 
 function getTodo(projectId, todoId) {
-   let projContainingTodo = getProjectById(projectId).todosList;
-   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+   const projContainingTodo = getProjectById(projectId)
+   const todoIndex = findTodoIndex(projectId, todoId);
    return projContainingTodo.todosList[todoIndex];
 }
 
-export { createProject, addTodoToProject, removeTodo, getRecentTodo, editTodo };
+function findTodoIndex(projectId, todoId) {
+   const projContainingTodo = getProjectById(projectId).todosList;
+   const todoIndex = projContainingTodo.findIndex(
+      (todo) => todo.id === Number(todoId)
+   );
+
+   return todoIndex;
+}
+
+export {
+   createProject,
+   addTodoToProject,
+   removeTodo,
+   getRecentTodo,
+   editTodoData,
+   findTodoIndex,
+};
