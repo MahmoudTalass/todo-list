@@ -1,4 +1,9 @@
-import { addTodoToProject, getRecentTodo } from "../model/project";
+import {
+   addTodoToProject,
+   editTodoData,
+   findTodoIndex,
+   getRecentTodo,
+} from "../model/project";
 import { getProjectById, getProjectByIndex } from "../model/user";
 import {
    appendTodoToProject,
@@ -72,9 +77,40 @@ function addAllTodos(project) {
    });
 }
 
+function editTodo() {
+   const project = document.querySelector("#project");
+   const projectId = project.getAttribute("data-project-id");
+
+   const editTodoForm = document.querySelector("#edit-todo-form");
+   const editedTodoId = editTodoForm.getAttribute("data-todo-being-edited");
+
+   const todoIndex = findTodoIndex(projectId, editedTodoId);
+   const todoFromDOM = project.children[todoIndex + 1];
+
+   const todoTitle = todoFromDOM.querySelector(".todo-title");
+   const todoDuedate = todoFromDOM.querySelector(".todo-duedate");
+   const todoPriority = todoFromDOM.querySelector(".todo-priority");
+   const todoDesc = todoFromDOM.querySelector(".todo-description");
+
+   const newValues = {
+      title: getTodoTitleInput("edit"),
+      duedate: getTodoDuedateInput("edit"),
+      desc: getTodoDescInput("edit"),
+      priority: getTodoPriorityInput("edit"),
+   };
+
+   editTodoData(projectId, editedTodoId, newValues);
+
+   todoTitle.textContent = newValues.title;
+   todoDuedate.textContent = newValues.duedate;
+   todoPriority.textContent = newValues.priority;
+   todoDesc.textContent = newValues.desc;
+}
+
 export {
    addTodoToPage,
    addTodoUsingForm,
    loadAllTodosInProject,
    loadAllTodosInFirstProj,
+   editTodo,
 };
