@@ -4,6 +4,7 @@ import {
    findTodoIndex,
    getRecentTodo,
    removeTodoData,
+   todoToggleCompletionData,
 } from "../model/project";
 import { getProjectById, getProjectByIndex } from "../model/user";
 import {
@@ -79,14 +80,13 @@ function addAllTodos(project) {
 }
 
 function removeTodo(e) {
-   const todo = e.target.closest(".todo-container")
-   const todoId = todo.getAttribute("data-todo-id")
-   const project = document.querySelector("#project")
-   const projectId = project.getAttribute("data-project-id")
+   const todo = e.target.closest(".todo-container");
+   const todoId = todo.getAttribute("data-todo-id");
+   const project = document.querySelector("#project");
+   const projectId = project.getAttribute("data-project-id");
 
-   removeTodoData(projectId, todoId)
-   project.removeChild(todo)
-   
+   removeTodoData(projectId, todoId);
+   project.removeChild(todo);
 }
 
 function editTodo() {
@@ -119,11 +119,24 @@ function editTodo() {
    todoDesc.textContent = newValues.desc;
 }
 
+function todoToggleCompletion(e) {
+   const project = document.querySelector("#project");
+   const projectId = project.getAttribute("data-projectId");
+
+   const todoHeadContainer = e.target.closest(".todo-head-container");
+   const todo = e.target.closest(".todo-container");
+   const todoId = todo.getAttribute("data-todo-id");
+
+   todoToggleCompletionData(projectId, todoId);
+   todoHeadContainer.classList.toggle("completed")
+}
+
 export {
    addTodoToPage,
    addTodoUsingForm,
    loadAllTodosInProject,
    loadAllTodosInFirstProj,
    editTodo,
-   removeTodo
+   removeTodo,
+   todoToggleCompletion,
 };
