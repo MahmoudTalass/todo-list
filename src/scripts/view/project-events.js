@@ -32,12 +32,12 @@ function handleProjectsInput() {
    window.addEventListener("click", (e) => {
       if (e.target === addProjectFormModal) {
          addProjectFormModal.style.display = "none";
-         clearProjectTitleInput("add");
+         clearProjectFormInput("add");
       }
 
       if (e.target === editProjectFormModal) {
          editProjectFormModal.style.display = "none";
-         clearProjectTitleInput("edit");
+         clearProjectFormInput("edit");
       }
    });
 
@@ -62,14 +62,14 @@ function handleProjectsInput() {
 
    projectTitlesContainer.addEventListener("click", (e) => {
       const isProjectTabBtn = e.target.classList.contains("project-tab-btn");
-      const isDeleteBtn = e.target.classList.contains("remove-project-icon");
+      const isRemoveBtn = e.target.classList.contains("remove-project-icon");
       const isEditBtn = e.target.classList.contains("edit-project-icon");
 
       if (isProjectTabBtn) {
          tabIntoProject(e);
       }
 
-      if (isDeleteBtn) {
+      if (isRemoveBtn) {
          removeProject(e);
       }
 
