@@ -48,6 +48,11 @@
    border: none;
    color: inherit;
    cursor: pointer;
+   transition: font-size .4s ease-out;
+}
+
+.project-tab-btn:hover {
+   font-size: 1.5rem;
 }
 
 .project-utility-btns {
