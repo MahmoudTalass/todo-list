@@ -101,6 +101,10 @@
    border-radius: 0.3rem;
 }
 
+.todo-description-input {
+   resize: none;
+}
+
 .todo-form-btn {
    display: flex;
    align-items: center;
