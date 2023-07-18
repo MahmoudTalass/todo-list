@@ -65,7 +65,7 @@ function markAsComplete(projectId, todoId) {
 }
 
 function getTodo(projectId, todoId) {
-   const projContainingTodo = getProjectById(projectId)
+   const projContainingTodo = getProjectById(projectId);
    const todoIndex = findTodoIndex(projectId, todoId);
    return projContainingTodo.todosList[todoIndex];
 }

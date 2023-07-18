@@ -57,7 +57,7 @@ function handleProjectsInput() {
       e.preventDefault();
       editProjectTitle();
       clearProjectFormInput("edit");
-      editProjectFormModal.style.display = "none"
+      editProjectFormModal.style.display = "none";
    });
 
    projectTitlesContainer.addEventListener("click", (e) => {

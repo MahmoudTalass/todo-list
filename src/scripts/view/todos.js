@@ -76,7 +76,7 @@ function renderAddTodoForm() {
 }
 
 function renderEditTodoForm() {
-   todoForm("edit")
+   todoForm("edit");
 }
 
 function todoForm(formType) {
@@ -176,7 +176,10 @@ function todoForm(formType) {
    input4Container.classList.add("input-container");
 
    const todoDescriptionLabel = document.createElement("label");
-   todoDescriptionLabel.setAttribute("for", `todo-description-input-${formType}`);
+   todoDescriptionLabel.setAttribute(
+      "for",
+      `todo-description-input-${formType}`
+   );
    todoDescriptionLabel.classList.add("todo-description-label");
    todoDescriptionLabel.textContent = "Description";
 
@@ -218,13 +221,17 @@ function appendTodoToProject(todoItem) {
 }
 
 function getTodoTitleInput(formType) {
-   const todoTitleInput = document.querySelector(`#todo-title-input-${formType}`);
+   const todoTitleInput = document.querySelector(
+      `#todo-title-input-${formType}`
+   );
 
    return todoTitleInput.value;
 }
 
 function getTodoDuedateInput(formType) {
-   const todoDuedateInput = document.querySelector(`#todo-duedate-input-${formType}`);
+   const todoDuedateInput = document.querySelector(
+      `#todo-duedate-input-${formType}`
+   );
 
    return todoDuedateInput.value;
 }
@@ -246,10 +253,18 @@ function getTodoDescInput(formType) {
 }
 
 function clearTodoFormInputs(formType) {
-   const todoTitleInput = document.querySelector(`#todo-title-input-${formType}`);
-   const todoDuedateInput = document.querySelector(`#todo-duedate-input-${formType}`);
-   const todoPriorityInput = document.querySelector(`#todo-priority-dropdown-${formType}`);
-   const todoDescInput = document.querySelector(`#todo-description-input-${formType}`);
+   const todoTitleInput = document.querySelector(
+      `#todo-title-input-${formType}`
+   );
+   const todoDuedateInput = document.querySelector(
+      `#todo-duedate-input-${formType}`
+   );
+   const todoPriorityInput = document.querySelector(
+      `#todo-priority-dropdown-${formType}`
+   );
+   const todoDescInput = document.querySelector(
+      `#todo-description-input-${formType}`
+   );
 
    todoTitleInput.value = "";
    todoDuedateInput.value = format(new Date(), "yyyy-MM-dd");

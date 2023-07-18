@@ -85,7 +85,9 @@ function editProjectTitle() {
       "data-project-being-edited"
    );
 
-   const projectsTitlesCont = document.querySelector("#projects-titles-container")
+   const projectsTitlesCont = document.querySelector(
+      "#projects-titles-container"
+   );
    const projectBtnIndex = findProjectIndex(editedProjectId);
    const projectBtn = projectsTitlesCont.children[projectBtnIndex].children[0];
    const newProjectTitle = getProjectTitleInput("edit");
