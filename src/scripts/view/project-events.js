@@ -5,7 +5,7 @@ import {
    displayFirstProject,
 } from "../controller/projects-controller";
 import { editProjectTitle } from "../controller/projects-controller";
-import { clearProjectTitleInput } from "./projects";
+import { clearProjectFormInput } from "./projects";
 
 // Display add project form
 function handleProjectsInput() {
@@ -49,14 +49,14 @@ function handleProjectsInput() {
    addProjectForm.addEventListener("submit", (e) => {
       e.preventDefault();
       addProjectUsingForm();
-      clearProjectTitleInput("add");
+      clearProjectFormInput("add");
       addProjectFormModal.style.display = "none";
    });
 
    editProjectForm.addEventListener("submit", (e) => {
       e.preventDefault();
       editProjectTitle();
-      clearProjectTitleInput("edit");
+      clearProjectFormInput("edit");
       editProjectFormModal.style.display = "none"
    });
 
