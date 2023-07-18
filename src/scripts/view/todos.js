@@ -25,7 +25,7 @@ function renderTodo(title, description, duedate, priority, todoId) {
    todoPriority.classList.add("todo-priority");
    todoPriority.textContent = priority;
 
-   const todoDuedate = document.createElement("duedate");
+   const todoDuedate = document.createElement("p");
    todoDuedate.classList.add("todo-duedate");
    todoDuedate.textContent = duedate;
 
@@ -245,7 +245,7 @@ function getTodoDescInput(formType) {
    return todoDescInput.value;
 }
 
-function clearAddTodoInputs(formType) {
+function clearTodoFormInputs(formType) {
    const todoTitleInput = document.querySelector(`#todo-title-input-${formType}`);
    const todoDuedateInput = document.querySelector(`#todo-duedate-input-${formType}`);
    const todoPriorityInput = document.querySelector(`#todo-priority-dropdown-${formType}`);
@@ -266,5 +266,5 @@ export {
    getTodoDuedateInput,
    getTodoPriorityInput,
    getTodoTitleInput,
-   clearAddTodoInputs,
+   clearTodoFormInputs,
 };
