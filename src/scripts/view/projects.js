@@ -145,7 +145,7 @@ function getProjectTitleInput(formType) {
    return addProjectInput;
 }
 
-function clearProjectTitleInput(formType) {
+function clearProjectFormInput(formType) {
    const projectInput = document.querySelector(
       `#project-title-input-${formType}`
    );
@@ -159,6 +159,6 @@ export {
    renderProject,
    renderAddProjectForm,
    getProjectTitleInput,
-   clearProjectTitleInput,
+   clearProjectFormInput,
    renderEditProjectTitleForm,
 };
