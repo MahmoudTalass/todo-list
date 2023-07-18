@@ -1,4 +1,4 @@
-import { addTodoUsingForm, editTodo } from "../controller/todos-controller";
+import { addTodoUsingForm, editTodo, removeTodo } from "../controller/todos-controller";
 import { clearTodoFormInputs } from "./todos";
 
 function handleTodosInput() {
@@ -13,6 +13,7 @@ function handleTodosInput() {
    projectsContainer.addEventListener("click", (e) => {
       const isAddTaskBtn = e.target.classList.contains("add-task-btn");
       const isEditTaskBtn = e.target.classList.contains("edit-todo-icon");
+      const isRemoveTaskBtn = e.target.classList.contains("remove-todo-icon")
 
       if (isAddTaskBtn) {
          addTodoFormModal.style.display = "block";
@@ -24,6 +25,12 @@ function handleTodosInput() {
          const todoId = todo.getAttribute("data-todo-id");
          editTodoForm.setAttribute("data-todo-being-edited", todoId);
       }
+
+      if (isRemoveTaskBtn) {
+         removeTodo(e)
+      }
+
+      
    });
 
    window.addEventListener("click", (e) => {
