@@ -36,9 +36,9 @@ function getRecentTodo(projectId) {
    return project.todoIds;
 }
 
-function removeTodo(projectId, todoId) {
+function removeTodoData(projectId, todoId) {
    let projContainingTodo = getProjectById(projectId).todosList;
-   let todoIndex = projContainingTodo.findIndex((todo) => todo.id === todoId);
+   let todoIndex = findTodoIndex(projectId, todoId)
    projContainingTodo.splice(todoIndex, 1);
    updateStorage();
 }
@@ -82,7 +82,7 @@ function findTodoIndex(projectId, todoId) {
 export {
    createProject,
    addTodoToProject,
-   removeTodo,
+   removeTodoData,
    getRecentTodo,
    editTodoData,
    findTodoIndex,
