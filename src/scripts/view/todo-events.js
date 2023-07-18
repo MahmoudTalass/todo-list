@@ -1,4 +1,4 @@
-import { addTodoUsingForm, editTodo, removeTodo } from "../controller/todos-controller";
+import { addTodoUsingForm, editTodo, removeTodo, todoToggleCompletion } from "../controller/todos-controller";
 import { clearTodoFormInputs } from "./todos";
 
 function handleTodosInput() {
@@ -14,6 +14,7 @@ function handleTodosInput() {
       const isAddTaskBtn = e.target.classList.contains("add-task-btn");
       const isEditTaskBtn = e.target.classList.contains("edit-todo-icon");
       const isRemoveTaskBtn = e.target.classList.contains("remove-todo-icon")
+      const isCompleteInput = e.target.classList.contains("mark-as-complete-input")
 
       if (isAddTaskBtn) {
          addTodoFormModal.style.display = "block";
@@ -29,6 +30,12 @@ function handleTodosInput() {
       if (isRemoveTaskBtn) {
          removeTodo(e)
       }
+
+      if (isCompleteInput) {
+         todoToggleCompletion(e)
+      }
+
+
 
       
    });
