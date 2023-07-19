@@ -3,6 +3,7 @@ import {
    editTodo,
    removeTodo,
    todoToggleCompletion,
+   toggleDescription,
 } from "../controller/todos-controller";
 import { clearTodoFormInputs } from "./todos";
 
@@ -22,6 +23,11 @@ function handleTodosInput() {
       const isCompleteInput = e.target.classList.contains(
          "mark-as-complete-input"
       );
+      const isTodoItem = e.target.classList.contains("todo-head-container");
+
+      if (isTodoItem) {
+         toggleDescription(e);
+      }
 
       if (isAddTaskBtn) {
          addTodoFormModal.style.display = "block";
