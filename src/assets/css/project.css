@@ -11,6 +11,7 @@
    flex-direction: column;
    width: min(1000px, 100%);
    align-items: center;
+   gap: 1rem;
 }
 
 .add-task-btn {
@@ -20,7 +21,7 @@
    background-color: inherit;
    border: none;
    gap: 1rem;
-   margin-bottom: 2rem;
+   margin-bottom: 1rem;
    margin-left: -5px;
    cursor: pointer;
 }
@@ -40,6 +41,7 @@
    align-items: center;
    justify-content: space-between;
    gap: 2rem;
+   transition: all 1s ease-in;
 }
 
 .project-tab-btn {
@@ -48,7 +50,7 @@
    border: none;
    color: inherit;
    cursor: pointer;
-   transition: font-size .4s ease-out;
+   transition: font-size 0.4s ease-out;
 }
 
 .project-tab-btn:hover {
