@@ -67,11 +67,18 @@ function removeProject(e) {
 
    const projectsContainer = document.querySelector("#projects-container");
    const project = document.querySelector("#project");
-   const projectId = project.getAttribute("data-project-id");
+   let projectId = null;
+   if (project !== null) {
+      projectId = project.getAttribute("data-project-id");
+   }
 
-   removeProjectData(projectTitleId);
-   projectTitlesContainer.removeChild(projectTitle);
+   projectTitle.style.transform = "translateX(-500px)";
 
+   setTimeout(() => {
+      removeProjectData(projectTitleId);
+      projectTitlesContainer.removeChild(projectTitle);
+   }, 1000);
+   
    // if the project being removed is also being displayed,
    // remove it from being displayed
    if (projectId === projectTitleId) {
