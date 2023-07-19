@@ -77,7 +77,7 @@ function removeProject(e) {
    setTimeout(() => {
       removeProjectData(projectTitleId);
       projectTitlesContainer.removeChild(projectTitle);
-   }, 1000);
+   }, 500);
    
    // if the project being removed is also being displayed,
    // remove it from being displayed
