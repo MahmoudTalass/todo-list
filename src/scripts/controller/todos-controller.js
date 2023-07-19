@@ -120,8 +120,9 @@ function editTodo() {
 }
 
 function todoToggleCompletion(e) {
+   debugger
    const project = document.querySelector("#project");
-   const projectId = project.getAttribute("data-projectId");
+   const projectId = project.getAttribute("data-project-id");
 
    const todoHeadContainer = e.target.closest(".todo-head-container");
    const todo = e.target.closest(".todo-container");
