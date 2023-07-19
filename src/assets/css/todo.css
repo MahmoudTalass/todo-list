@@ -3,10 +3,11 @@
    display: flex;
    width: 100%;
    flex-direction: column;
-   gap: 1rem;
    align-items: center;
    justify-content: center;
-   padding-top: 1rem;
+   padding: 0.8rem .5rem;
+   border: 1px solid #aaa;
+   border-radius: .3rem;
 }
 
 .todo-head-container {
@@ -15,6 +16,7 @@
    align-items: center;
    gap: 1rem;
    position: relative;
+   cursor: pointer;
 }
 
 .todo-head-container.completed::before {
@@ -25,6 +27,23 @@
    border-bottom: 1px solid #111;
    width: 100%;
 }
+
+.todo-details-container {
+   opacity: 0;
+   width: 100%;
+   height: 0;
+   /* transition: height 1s ease-out, opacity .5s ease-out, padding .5s ease-out; */
+   transition: all .3s linear;
+   padding: 0 2.2rem;
+}
+
+.todo-details-container.active {
+   height: fit-content;
+   opacity: 1;
+   padding: 1rem 2.2rem .5rem;
+}
+
+
 
 .todo-title {
    margin-right: auto;
@@ -50,13 +69,9 @@
    transform: scale(1.1);
 }
 
-.todo-container:not(:last-child) {
+/* .todo-container:not(:last-child) {
    border-bottom: 1px solid var(--color3);
-}
-
-.todo-description {
-   display: none;
-}
+} */
 
 /* Add todo form */
 
