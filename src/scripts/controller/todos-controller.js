@@ -131,6 +131,14 @@ function todoToggleCompletion(e) {
    todoHeadContainer.classList.toggle("completed")
 }
 
+function toggleDescription(e) {
+   const todoContainer = e.target.parentElement;
+   const desc = e.target.nextSibling;
+   desc.classList.toggle("active")
+   e.target.classList.toggle("active")
+   todoContainer.classList.toggle("active")
+}
+
 export {
    addTodoToPage,
    addTodoUsingForm,
@@ -139,4 +147,5 @@ export {
    editTodo,
    removeTodo,
    todoToggleCompletion,
+   toggleDescription
 };
