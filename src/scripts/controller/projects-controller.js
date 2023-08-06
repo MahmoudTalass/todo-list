@@ -87,6 +87,7 @@ function removeProject(e) {
 }
 
 function editProjectTitle() {
+   debugger;
    const editProjectForm = document.querySelector("#edit-project-form");
    const editedProjectId = editProjectForm.getAttribute(
       "data-project-being-edited"
@@ -99,7 +100,7 @@ function editProjectTitle() {
    const projectBtn = projectsTitlesCont.children[projectBtnIndex].children[0];
    const newProjectTitle = getProjectTitleInput("edit");
 
-   editProjectTitleData(editProjectFormId, newProjectTitle);
+   editProjectTitleData(editedProjectId, newProjectTitle);
    projectBtn.textContent = newProjectTitle;
 }
 
